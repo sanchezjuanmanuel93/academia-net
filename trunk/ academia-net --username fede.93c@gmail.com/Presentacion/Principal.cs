@@ -18,28 +18,51 @@ namespace Presentacion
             InitializeComponent();
         }
 
+
+        Persona persona;
+
+
         private void Principal_Load(object sender, EventArgs e)
         {
-
+            this.IsMdiContainer = true;
+            mnuAlumnos.Visible = mnuProfesores.Visible 
+                = mnuMaterias.Visible = mnuPermisos.Visible
+                = mnuUsuarios.Visible= false;
         }
 
         void cerrarSesion()
         {
-            mnuAñadir.Enabled = false;
             this.Text = "Sistema Academia";
+            persona = null;
         }
         
         private void mnuIngresar_Click(object sender, EventArgs e)
         {
             cerrarSesion();
             Logging logging = new Logging();
-            Persona persona = logging.mostrarLogging();
+            persona = logging.mostrarLogging();
             if (persona != null)
             {
                 this.Text += " - Bienvendio " + persona.Apellido + ", " + persona.Nombre;
-                mnuAñadir.Enabled = true;
+                iniciaSesion();
             }           
             logging = null;
+        }
+
+        void iniciaSesion()
+        {
+            ControladorPermisos cP = new ControladorPermisos();
+            foreach (ToolStripMenuItem item in mnuPrincipal.Items)
+            {
+                if (item.Text != "Inicio")
+                {
+                    item.Visible = cP.getPermisoUsuarioModulo(persona.Usuario, item.Text);                    
+                }
+
+            }
+ 
+	
+          
         }
 
         private void mnuSalir_Click(object sender, EventArgs e)
@@ -53,10 +76,11 @@ namespace Presentacion
             cp.agregarUsuario("Fede", "CALVI", "123412");
         }
 
-        private void asdToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuPermisos_Click(object sender, EventArgs e)
         {
-            Permisos p = new Permisos();
-                p.Show();
+            Permisos permisos = new Permisos();
+            permisos.MdiParent = this;
+            permisos.Show();
         }
     }
 }

@@ -33,15 +33,11 @@
             this.mnuIngresar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAñadir = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAñadirUsuario = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAñadirAlumno = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAñadirMateria = new System.Windows.Forms.ToolStripMenuItem();
-            this.especialidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.profesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comisionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPermisos = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAlumnos = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuProfesores = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMaterias = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,8 +45,11 @@
             // 
             this.mnuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
-            this.mnuAñadir,
-            this.asdToolStripMenuItem});
+            this.mnuUsuarios,
+            this.mnuAlumnos,
+            this.mnuPermisos,
+            this.mnuProfesores,
+            this.mnuMaterias});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
             this.mnuPrincipal.Size = new System.Drawing.Size(518, 24);
@@ -72,88 +71,54 @@
             this.mnuIngresar.Name = "mnuIngresar";
             this.mnuIngresar.ShortcutKeyDisplayString = "F2";
             this.mnuIngresar.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.mnuIngresar.Size = new System.Drawing.Size(142, 22);
+            this.mnuIngresar.Size = new System.Drawing.Size(152, 22);
             this.mnuIngresar.Text = "Ingresar";
             this.mnuIngresar.Click += new System.EventHandler(this.mnuIngresar_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(139, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuSalir
             // 
             this.mnuSalir.Name = "mnuSalir";
             this.mnuSalir.ShortcutKeyDisplayString = "Ctrl + S";
             this.mnuSalir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mnuSalir.Size = new System.Drawing.Size(142, 22);
+            this.mnuSalir.Size = new System.Drawing.Size(152, 22);
             this.mnuSalir.Text = "Salir";
             this.mnuSalir.Click += new System.EventHandler(this.mnuSalir_Click);
             // 
-            // mnuAñadir
+            // mnuPermisos
             // 
-            this.mnuAñadir.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuAñadirUsuario,
-            this.mnuAñadirAlumno,
-            this.mnuAñadirMateria,
-            this.especialidadToolStripMenuItem,
-            this.profesorToolStripMenuItem,
-            this.comisionToolStripMenuItem,
-            this.cursoToolStripMenuItem});
-            this.mnuAñadir.Enabled = false;
-            this.mnuAñadir.Name = "mnuAñadir";
-            this.mnuAñadir.Size = new System.Drawing.Size(54, 20);
-            this.mnuAñadir.Text = "Añadir";
+            this.mnuPermisos.Name = "mnuPermisos";
+            this.mnuPermisos.Size = new System.Drawing.Size(67, 20);
+            this.mnuPermisos.Text = "Permisos";
+            this.mnuPermisos.Click += new System.EventHandler(this.mnuPermisos_Click);
             // 
-            // mnuAñadirUsuario
+            // mnuUsuarios
             // 
-            this.mnuAñadirUsuario.Name = "mnuAñadirUsuario";
-            this.mnuAñadirUsuario.Size = new System.Drawing.Size(152, 22);
-            this.mnuAñadirUsuario.Text = "Usuario";
-            this.mnuAñadirUsuario.Click += new System.EventHandler(this.mnuAñadirUsuario_Click);
+            this.mnuUsuarios.Name = "mnuUsuarios";
+            this.mnuUsuarios.Size = new System.Drawing.Size(64, 20);
+            this.mnuUsuarios.Text = "Usuarios";
             // 
-            // mnuAñadirAlumno
+            // mnuAlumnos
             // 
-            this.mnuAñadirAlumno.Name = "mnuAñadirAlumno";
-            this.mnuAñadirAlumno.Size = new System.Drawing.Size(152, 22);
-            this.mnuAñadirAlumno.Text = "Alumno";
+            this.mnuAlumnos.Name = "mnuAlumnos";
+            this.mnuAlumnos.Size = new System.Drawing.Size(67, 20);
+            this.mnuAlumnos.Text = "Alumnos";
             // 
-            // mnuAñadirMateria
+            // mnuProfesores
             // 
-            this.mnuAñadirMateria.Name = "mnuAñadirMateria";
-            this.mnuAñadirMateria.Size = new System.Drawing.Size(152, 22);
-            this.mnuAñadirMateria.Text = "Materia";
+            this.mnuProfesores.Name = "mnuProfesores";
+            this.mnuProfesores.Size = new System.Drawing.Size(74, 20);
+            this.mnuProfesores.Text = "Profesores";
             // 
-            // especialidadToolStripMenuItem
+            // mnuMaterias
             // 
-            this.especialidadToolStripMenuItem.Name = "especialidadToolStripMenuItem";
-            this.especialidadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.especialidadToolStripMenuItem.Text = "Especialidad";
-            // 
-            // profesorToolStripMenuItem
-            // 
-            this.profesorToolStripMenuItem.Name = "profesorToolStripMenuItem";
-            this.profesorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.profesorToolStripMenuItem.Text = "Profesor";
-            // 
-            // comisionToolStripMenuItem
-            // 
-            this.comisionToolStripMenuItem.Name = "comisionToolStripMenuItem";
-            this.comisionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.comisionToolStripMenuItem.Text = "Comision";
-            // 
-            // cursoToolStripMenuItem
-            // 
-            this.cursoToolStripMenuItem.Name = "cursoToolStripMenuItem";
-            this.cursoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.cursoToolStripMenuItem.Text = "Curso";
-            // 
-            // asdToolStripMenuItem
-            // 
-            this.asdToolStripMenuItem.Name = "asdToolStripMenuItem";
-            this.asdToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.asdToolStripMenuItem.Text = "asd";
-            this.asdToolStripMenuItem.Click += new System.EventHandler(this.asdToolStripMenuItem_Click);
+            this.mnuMaterias.Name = "mnuMaterias";
+            this.mnuMaterias.Size = new System.Drawing.Size(64, 20);
+            this.mnuMaterias.Text = "Materias";
             // 
             // Principal
             // 
@@ -180,15 +145,11 @@
         private System.Windows.Forms.ToolStripMenuItem mnuIngresar;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mnuSalir;
-        private System.Windows.Forms.ToolStripMenuItem mnuAñadir;
-        private System.Windows.Forms.ToolStripMenuItem mnuAñadirUsuario;
-        private System.Windows.Forms.ToolStripMenuItem mnuAñadirAlumno;
-        private System.Windows.Forms.ToolStripMenuItem mnuAñadirMateria;
-        private System.Windows.Forms.ToolStripMenuItem especialidadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem profesorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem comisionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cursoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem asdToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuPermisos;
+        private System.Windows.Forms.ToolStripMenuItem mnuUsuarios;
+        private System.Windows.Forms.ToolStripMenuItem mnuAlumnos;
+        private System.Windows.Forms.ToolStripMenuItem mnuProfesores;
+        private System.Windows.Forms.ToolStripMenuItem mnuMaterias;
     }
 }
 
