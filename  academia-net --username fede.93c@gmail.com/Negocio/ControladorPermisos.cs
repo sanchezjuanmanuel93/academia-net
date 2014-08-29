@@ -9,17 +9,21 @@ namespace Negocio
 {
     public class ControladorPermisos
     {
-        public Permiso[] getUsuariosyPermisos()
+        CatalogoPermisos cp;
+
+        public ControladorPermisos()
         {
-            CatalogoPermisos cp = new CatalogoPermisos();
+            cp = new CatalogoPermisos();
+        }
+        public Permiso[] getUsuariosyPermisos()
+        {         
             Permiso[] permisos = cp.getPermisos();
             return permisos;
         }
 
         public bool getPermisoUsuarioModulo(string Usuario, string nombreModulo)
         {
-            CatalogoPermisos cP = new CatalogoPermisos();
-            Permiso[] permisos = cP.getPermisos();
+            Permiso[] permisos = cp.getPermisos();
             foreach (Permiso permiso in permisos)
             {
                 if (permiso!=null)
@@ -31,6 +35,14 @@ namespace Negocio
                 }
             }
             return false;
+        }
+
+        public void actualizaPermisos(Permiso[] permisos)
+        {
+            foreach (Permiso permiso in permisos)
+            {
+                cp.actualizarPermisos(permiso);
+            }
         }
 
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Entidades;
 
 namespace Presentacion
 {
@@ -17,10 +18,19 @@ namespace Presentacion
             InitializeComponent();
         }
 
+        ControladorPermisos cp = new ControladorPermisos();
+
+
         private void Permisos_Load(object sender, EventArgs e)
         {
-            ControladorPermisos cp = new ControladorPermisos();
             dgvPermisos.DataSource = cp.getUsuariosyPermisos();
+            dgvPermisos.Columns["nroModulo"].Visible = false;
+        }
+
+
+        private void Permisos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            cp.actualizaPermisos((Permiso[])dgvPermisos.DataSource);
         }
 
     }

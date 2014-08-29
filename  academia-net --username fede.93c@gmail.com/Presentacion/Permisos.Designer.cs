@@ -49,6 +49,7 @@
             this.Controls.Add(this.dgvPermisos);
             this.Name = "Permisos";
             this.Text = "Permisos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Permisos_FormClosing);
             this.Load += new System.EventHandler(this.Permisos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermisos)).EndInit();
             this.ResumeLayout(false);
