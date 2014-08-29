@@ -34,6 +34,8 @@
             // 
             // dgvPermisos
             // 
+            this.dgvPermisos.AllowUserToAddRows = false;
+            this.dgvPermisos.AllowUserToDeleteRows = false;
             this.dgvPermisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPermisos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPermisos.Location = new System.Drawing.Point(0, 0);

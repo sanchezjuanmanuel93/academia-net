@@ -25,6 +25,8 @@ namespace Presentacion
         {
             dgvPermisos.DataSource = cp.getUsuariosyPermisos();
             dgvPermisos.Columns["nroModulo"].Visible = false;
+            dgvPermisos.Columns["Usuario"].ReadOnly = true;
+            dgvPermisos.Columns["Modulo"].ReadOnly = true;
         }
 
 
