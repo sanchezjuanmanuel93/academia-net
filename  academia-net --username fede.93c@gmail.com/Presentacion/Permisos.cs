@@ -21,7 +21,6 @@ namespace Presentacion
         {
             ControladorPermisos cp = new ControladorPermisos();
             dgvPermisos.DataSource = cp.getUsuariosyPermisos();
-
         }
 
     }

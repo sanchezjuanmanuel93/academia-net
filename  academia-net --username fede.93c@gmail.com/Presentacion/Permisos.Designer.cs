@@ -38,14 +38,14 @@
             this.dgvPermisos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPermisos.Location = new System.Drawing.Point(0, 0);
             this.dgvPermisos.Name = "dgvPermisos";
-            this.dgvPermisos.Size = new System.Drawing.Size(979, 185);
+            this.dgvPermisos.Size = new System.Drawing.Size(664, 371);
             this.dgvPermisos.TabIndex = 0;
             // 
             // Permisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 185);
+            this.ClientSize = new System.Drawing.Size(664, 371);
             this.Controls.Add(this.dgvPermisos);
             this.Name = "Permisos";
             this.Text = "Permisos";
