@@ -13,6 +13,7 @@ namespace Entidades
         public bool Modifica { get; set; }
         public bool Consulta { get; set; }
         public string Modulo { get; set; }
+        public int nroModulo { get; set; }
 
     }
 }

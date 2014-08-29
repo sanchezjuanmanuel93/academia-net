@@ -28,7 +28,7 @@ namespace CapaDeDatos
             Permiso[] permisos;
             dTable = new DataTable("permisos");
             myCon.Open();
-            adapter = new SqlDataAdapter("select u.Usu, um.Alta, um.Baja, um.Modifica, um.Consulta, m.Descripcion from Usuarios_Modulos um join Usuario u on um.Usu = u.Usu join Modulo m on um.Id_mod = m.Id_mod", myCon);
+            adapter = new SqlDataAdapter("select u.Usu, um.Id_mod, um.Alta, um.Baja, um.Modifica, um.Consulta, m.Descripcion from Usuarios_Modulos um join Usuario u on um.Usu = u.Usu join Modulo m on um.Id_mod = m.Id_mod", myCon);
             adapter.Fill(dTable);
             myCon.Close();
 
@@ -43,11 +43,35 @@ namespace CapaDeDatos
                 permisos[i].Modifica = (bool)(dTable.Rows[i]["Modifica"]);
                 permisos[i].Consulta = (bool)(dTable.Rows[i]["Consulta"]);
                 permisos[i].Modulo = dTable.Rows[i]["Descripcion"].ToString();
+                permisos[i].nroModulo = (int)dTable.Rows[i]["Id_mod"];
 			}
 
             return permisos;
                
             }
+
+        public void actualizarPermisos(Permiso permiso)
+        {
+                string actualizaString;
+                actualizaString = "UPDATE Usuarios_Modulos SET ";
+                actualizaString += "Alta=@Alta, ";
+                actualizaString += "Baja=@Baja, Modifica=@Modifica, Consulta=@Consulta ";
+                actualizaString += "WHERE Usu=@Usuario and Id_mod=@Id_mod";
+                SqlCommand cmd = new SqlCommand(actualizaString, myCon);
+                cmd.Parameters.AddWithValue("@Usuario", permiso.Usuario);
+                cmd.Parameters.AddWithValue("@Alta", permiso.Alta);
+                cmd.Parameters.AddWithValue("@Baja", permiso.Baja);
+                cmd.Parameters.AddWithValue("@Modifica", permiso.Modifica);
+                cmd.Parameters.AddWithValue("@Consulta", permiso.Consulta);
+                cmd.Parameters.AddWithValue("@Id_mod", permiso.nroModulo);
+                myCon.Open();
+                cmd.ExecuteNonQuery();
+                myCon.Close();
+            }           
         }
     }
+
+
+        
+       
 
