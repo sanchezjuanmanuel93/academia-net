@@ -33,9 +33,9 @@ namespace CapaDeDatos
             myCon.Close();
 
             permisos = new Permiso[dTable.Rows.Count];
-            
+
             for (int i = 0; i < permisos.Length; i++)
-			{
+            {
                 permisos[i] = new Permiso();
                 permisos[i].Usuario = dTable.Rows[i]["Usu"].ToString();
                 permisos[i].Alta = (bool)(dTable.Rows[i]["Alta"]);
@@ -44,32 +44,52 @@ namespace CapaDeDatos
                 permisos[i].Consulta = (bool)(dTable.Rows[i]["Consulta"]);
                 permisos[i].Modulo = dTable.Rows[i]["Descripcion"].ToString();
                 permisos[i].nroModulo = (int)dTable.Rows[i]["Id_mod"];
-			}
+            }
 
             return permisos;
-               
-            }
+
+        }
 
         public void actualizarPermisos(Permiso permiso)
         {
-                string actualizaString;
-                actualizaString = "UPDATE Usuarios_Modulos SET ";
-                actualizaString += "Alta=@Alta, ";
-                actualizaString += "Baja=@Baja, Modifica=@Modifica, Consulta=@Consulta ";
-                actualizaString += "WHERE Usu=@Usuario and Id_mod=@Id_mod";
-                SqlCommand cmd = new SqlCommand(actualizaString, myCon);
-                cmd.Parameters.AddWithValue("@Usuario", permiso.Usuario);
-                cmd.Parameters.AddWithValue("@Alta", permiso.Alta);
-                cmd.Parameters.AddWithValue("@Baja", permiso.Baja);
-                cmd.Parameters.AddWithValue("@Modifica", permiso.Modifica);
-                cmd.Parameters.AddWithValue("@Consulta", permiso.Consulta);
-                cmd.Parameters.AddWithValue("@Id_mod", permiso.nroModulo);
-                myCon.Open();
-                cmd.ExecuteNonQuery();
-                myCon.Close();
-            }           
+            string actualizaString;
+            actualizaString = "UPDATE Usuarios_Modulos SET ";
+            actualizaString += "Alta=@Alta, ";
+            actualizaString += "Baja=@Baja, Modifica=@Modifica, Consulta=@Consulta ";
+            actualizaString += "WHERE Usu=@Usuario and Id_mod=@Id_mod";
+            SqlCommand cmd = new SqlCommand(actualizaString, myCon);
+            cmd.Parameters.AddWithValue("@Usuario", permiso.Usuario);
+            cmd.Parameters.AddWithValue("@Alta", permiso.Alta);
+            cmd.Parameters.AddWithValue("@Baja", permiso.Baja);
+            cmd.Parameters.AddWithValue("@Modifica", permiso.Modifica);
+            cmd.Parameters.AddWithValue("@Consulta", permiso.Consulta);
+            cmd.Parameters.AddWithValue("@Id_mod", permiso.nroModulo);
+            myCon.Open();
+            cmd.ExecuteNonQuery();
+            myCon.Close();
         }
+
+        public bool agregarPermiso(string usuario, int modulo, bool alta, bool baja, bool modifica, bool consulta)
+        {
+            int ok;
+            string querry = "insert into Usuarios_Modulos (Usu, Id_mod, Alta, Baja, Modifica, Consulta) ";
+            querry += "values ('" + usuario + "'," + modulo + "," + Convert.ToInt32(alta) + "," + Convert.ToInt32(baja) + "," + Convert.ToInt32(modifica) + "," + Convert.ToInt32(consulta) + ");";
+
+            SqlCommand cmd = new SqlCommand(querry, myCon);
+            cmd.CommandType = CommandType.Text;
+            myCon.Open();
+            ok = cmd.ExecuteNonQuery();
+            myCon.Close();
+
+            if (ok > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
     }
+}
 
 
         

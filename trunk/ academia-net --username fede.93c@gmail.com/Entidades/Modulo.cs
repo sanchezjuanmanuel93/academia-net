@@ -5,7 +5,9 @@ using System.Text;
 
 namespace Entidades
 {
-    class Modulo
+    public class Modulo
     {
+        public int Id_mod { get; set; }
+        public string modulo { get; set; }
     }
 }

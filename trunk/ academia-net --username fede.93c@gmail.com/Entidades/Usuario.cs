@@ -9,5 +9,6 @@ namespace Entidades
     {
         public string Usu { get; set; }
         public string Clave { get; set; }
+        public int Legajo { get; set; }
     }
 }

@@ -23,16 +23,35 @@ namespace Presentacion
 
         private void Permisos_Load(object sender, EventArgs e)
         {
+            llenarGrilla();
+        }
+
+        void llenarGrilla()
+        {
             dgvPermisos.DataSource = cp.getUsuariosyPermisos();
             dgvPermisos.Columns["nroModulo"].Visible = false;
             dgvPermisos.Columns["Usuario"].ReadOnly = true;
             dgvPermisos.Columns["Modulo"].ReadOnly = true;
         }
 
+        private void btnAlta_Click(object sender, EventArgs e)
+        {
+            AltaPermiso altaPermiso = new AltaPermiso();
+            altaPermiso.ShowDialog();
+            llenarGrilla();
+        }
 
-        private void Permisos_FormClosing(object sender, FormClosingEventArgs e)
+
+
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             cp.actualizaPermisos((Permiso[])dgvPermisos.DataSource);
+            this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }
