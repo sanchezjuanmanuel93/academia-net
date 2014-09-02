@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CatalogoModulos.cs" />
     <Compile Include="CatalogoPermisos.cs" />
     <Compile Include="CatalogoPersonas.cs" />
+    <Compile Include="CatalogoUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
