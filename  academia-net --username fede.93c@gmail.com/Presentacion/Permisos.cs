@@ -11,9 +11,9 @@ using Entidades;
 
 namespace Presentacion
 {
-    public partial class Permisos : Form
+    public partial class frmPermisos : Form
     {
-        public Permisos()
+        public frmPermisos()
         {
             InitializeComponent();
         }
@@ -36,7 +36,7 @@ namespace Presentacion
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
-            AltaPermiso altaPermiso = new AltaPermiso();
+            frmAltaPermiso altaPermiso = new frmAltaPermiso();
             altaPermiso.ShowDialog();
             llenarGrilla();
         }
@@ -45,13 +45,46 @@ namespace Presentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            guardar();
+        }
+
+        void guardar()
+        {
             cp.actualizaPermisos((Permiso[])dgvPermisos.DataSource);
-            this.Close();
+            MessageBox.Show("Guardado exitosamente.", "Sistema Academia", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnBaja_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewCell cell in dgvPermisos.SelectedCells)
+            {
+                DataGridViewRow fila = cell.OwningRow;
+                cp.eliminarPermiso(fila.Cells["Usuario"].Value.ToString(), fila.Cells["Modulo"].Value.ToString());
+            }
+            llenarGrilla();
+        }
+
+        private void Permisos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (MessageBox.Show("Desea guardar los cambios?", "Atento!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question))
+            {
+
+                case DialogResult.Cancel:
+                    e.Cancel = true;
+                    break;
+                case DialogResult.No:
+                    break;
+                case DialogResult.Yes:
+                    guardar();
+                    break;
+                default:
+                    break;
+            }
         }
 
     }

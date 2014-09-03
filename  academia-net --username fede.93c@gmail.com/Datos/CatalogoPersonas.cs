@@ -23,27 +23,49 @@ namespace CapaDeDatos
 
         public Persona getPersona(string usuario, string contraseña)
         {
-            dTable = new DataTable("usuarios");
+            dTable = new DataTable("personas");
             myCon.Open();
             adapter = new SqlDataAdapter("SELECT * from usuario join persona on usuario.Legajo = persona.Legajo WHERE Usu = '" + usuario + "' and Clave = '" + contraseña + "';", myCon);
             adapter.Fill(dTable);
             myCon.Close();
             if (dTable.Rows.Count != 0)
             {
-                return completarPersona(dTable.Rows[0]);
+                return completarPersona(dTable.Rows[0], true);
             }
             return null;
         }
 
-        Persona completarPersona(DataRow dRow)
+        public List<Persona> getPersonasSinUsuario()
+        {
+            List<Persona> personas = new List<Persona>();
+            dTable = new DataTable("personas");
+            myCon.Open();
+            adapter = new SqlDataAdapter("select * from Persona except select p.Legajo, p.Nombre, p.Apellido, p.Email, p.Telefono, p.Tipo from Usuario u right join Persona p on u.Legajo = p.Legajo where u.Usu is not null", myCon);
+            adapter.Fill(dTable);
+            myCon.Close();
+            if (dTable.Rows.Count != 0)
+            {
+                foreach (DataRow row in dTable.Rows)
+                {
+                    personas.Add(completarPersona(row, false));
+                }
+                return personas;
+            }
+            return null;
+        }
+
+        Persona completarPersona(DataRow dRow, bool usu)
         {
             Persona persona = new Persona();
-            persona.Legajo = dRow["legajo"].ToString();
+            persona.Legajo = dRow["Legajo"].ToString();
             persona.Nombre = dRow["nombre"].ToString();
             persona.Apellido = dRow["apellido"].ToString();
             persona.Telefono = dRow["telefono"].ToString();
             persona.Email = dRow["email"].ToString();
-            persona.Usuario = dRow["Usu"].ToString();
+            if (usu)
+            {
+                persona.Usuario = dRow["usu"].ToString();
+            }
             return persona;
         }
 

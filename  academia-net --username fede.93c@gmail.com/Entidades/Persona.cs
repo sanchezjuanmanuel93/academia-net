@@ -14,6 +14,11 @@ namespace Entidades
         public string Email { get; set; }
         public string Usuario { get; set; }
 
+        public string Mostrar 
+        { get
+            { return Apellido + ", " + Nombre; }
+        }
+
         //public string cadena
         //{
         //    get

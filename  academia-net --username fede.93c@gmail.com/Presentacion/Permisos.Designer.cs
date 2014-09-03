@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class Permisos
+    partial class frmPermisos
     {
         /// <summary>
         /// Required designer variable.
@@ -31,9 +31,9 @@
             this.dgvPermisos = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAlta = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.btnBaja = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermisos)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -78,15 +78,15 @@
             this.btnAlta.UseVisualStyleBackColor = true;
             this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
             // 
-            // btnCancelar
+            // btnBaja
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(501, 3);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(160, 61);
-            this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnBaja.Location = new System.Drawing.Point(169, 3);
+            this.btnBaja.Name = "btnBaja";
+            this.btnBaja.Size = new System.Drawing.Size(160, 61);
+            this.btnBaja.TabIndex = 2;
+            this.btnBaja.Text = "Baja";
+            this.btnBaja.UseVisualStyleBackColor = true;
+            this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
             // 
             // btnGuardar
             // 
@@ -98,24 +98,26 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnBaja
+            // btnCancelar
             // 
-            this.btnBaja.Location = new System.Drawing.Point(169, 3);
-            this.btnBaja.Name = "btnBaja";
-            this.btnBaja.Size = new System.Drawing.Size(160, 61);
-            this.btnBaja.TabIndex = 2;
-            this.btnBaja.Text = "Baja";
-            this.btnBaja.UseVisualStyleBackColor = true;
+            this.btnCancelar.Location = new System.Drawing.Point(501, 3);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(160, 61);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // Permisos
+            // frmPermisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 371);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.dgvPermisos);
-            this.Name = "Permisos";
+            this.Name = "frmPermisos";
             this.Text = "Permisos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Permisos_FormClosing);
             this.Load += new System.EventHandler(this.Permisos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermisos)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -11,9 +11,9 @@ using Negocio;
 
 namespace Presentacion
 {
-    public partial class Principal : Form
+    public partial class frmPrincipal : Form
     {
-        public Principal()
+        public frmPrincipal()
         {
             InitializeComponent();
         }
@@ -25,28 +25,57 @@ namespace Presentacion
         private void Principal_Load(object sender, EventArgs e)
         {
             this.IsMdiContainer = true;
-            mnuAlumnos.Visible = mnuProfesores.Visible 
-                = mnuMaterias.Visible = mnuPermisos.Visible
-                = mnuUsuarios.Visible= false;
+            cerrarSesion();
         }
 
-        void cerrarSesion()
+        bool cerrarSesion()
         {
-            this.Text = "Sistema Academia";
-            persona = null;
+
+            if (persona!=null)
+            {
+                if (MessageBox.Show("Seguro que desea cerrar la sesion?", "Atencion!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    persona = null;
+                    foreach (Form form in this.MdiChildren)
+                    {
+                        form.Close();
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            
+                mnuAlumnos.Visible = mnuProfesores.Visible
+        = mnuMaterias.Visible = mnuPermisos.Visible
+        = mnuUsuarios.Visible = mnuComisiones.Visible
+        = mnuEspecialidades.Visible = mnuPlanes.Visible
+        = mnuInscripciones.Visible = false;
+                this.Text = "Sistema Academia";
+
+                return true;
+
+
         }
         
         private void mnuIngresar_Click(object sender, EventArgs e)
         {
-            cerrarSesion();
-            Logging logging = new Logging();
-            persona = logging.mostrarLogging();
-            if (persona != null)
+            if (cerrarSesion())
             {
-                this.Text += " - Bienvendio " + persona.Apellido + ", " + persona.Nombre;
-                iniciaSesion();
-            }           
-            logging = null;
+                frmLogging logging = new frmLogging();
+                persona = logging.mostrarLogging();
+                if (persona != null)
+                {
+
+                    this.Text = "Sistema Academia - Bienvendio " + persona.Apellido + ", " + persona.Nombre;
+                    iniciaSesion();
+                }
+                logging = null;
+            }
+
         }
 
         void iniciaSesion()
@@ -70,17 +99,24 @@ namespace Presentacion
             this.Close();
         }
 
-        private void mnuAñadirUsuario_Click(object sender, EventArgs e)
-        {
-            ControladorPrincipal cp = new ControladorPrincipal();
-            cp.agregarUsuario("Fede", "CALVI", "123412");
-        }
+        //private void mnuAñadirUsuario_Click(object sender, EventArgs e)
+        //{
+        //    ControladorPrincipal cp = new ControladorPrincipal();
+        //    cp.agregarUsuario("Fede", "CALVI", 123412);
+        //}
 
         private void mnuPermisos_Click(object sender, EventArgs e)
         {
-            Permisos permisos = new Permisos();
+            frmPermisos permisos = new frmPermisos();
             permisos.MdiParent = this;
             permisos.Show();
+        }
+
+        private void mnuUsuarios_Click(object sender, EventArgs e)
+        {
+            frmUsuario frmUsuario = new frmUsuario();
+            frmUsuario.MdiParent = this;
+            frmUsuario.Show();
         }
     }
 }
