@@ -25,9 +25,16 @@ namespace Negocio
             return permisos;
         }
 
-        public Usuario[] getUsuarios()
+        public Usuario[] mostrarUsuarios()
         {
             return cU.getUsuarios();
+        }
+
+        public bool eliminarPermiso(string usuario, string modulo)
+        {
+            int nroMod = cM.getNroModulo(modulo);
+            cp.eliminarPermiso(usuario, nroMod);
+            return true;
         }
 
         public bool getPermisoUsuarioModulo(string Usuario, string nombreModulo)
@@ -69,7 +76,7 @@ namespace Negocio
 
         public bool agregarPermiso(string usuario, string modulo, bool alta, bool baja, bool modifica, bool consulta)
         {
-            int nroMod = cM.getNroModulo(modulo).Id_mod;
+            int nroMod = cM.getNroModulo(modulo);
             return cp.agregarPermiso(usuario, nroMod, alta, baja, modifica, consulta);
         }
 

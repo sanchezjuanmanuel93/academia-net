@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class Principal
+    partial class frmPrincipal
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -35,12 +35,13 @@
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAlumnos = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuPermisos = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuProfesores = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMaterias = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuComisiones = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEspecialidades = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPlanes = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPermisos = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuInscripciones = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,13 +50,14 @@
             this.mnuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
             this.mnuUsuarios,
+            this.mnuPermisos,
             this.mnuAlumnos,
             this.mnuProfesores,
             this.mnuMaterias,
             this.mnuComisiones,
+            this.mnuInscripciones,
             this.mnuEspecialidades,
-            this.mnuPlanes,
-            this.mnuPermisos});
+            this.mnuPlanes});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
             this.mnuPrincipal.Size = new System.Drawing.Size(784, 24);
@@ -100,19 +102,13 @@
             this.mnuUsuarios.Name = "mnuUsuarios";
             this.mnuUsuarios.Size = new System.Drawing.Size(64, 20);
             this.mnuUsuarios.Text = "Usuarios";
+            this.mnuUsuarios.Click += new System.EventHandler(this.mnuUsuarios_Click);
             // 
             // mnuAlumnos
             // 
             this.mnuAlumnos.Name = "mnuAlumnos";
             this.mnuAlumnos.Size = new System.Drawing.Size(67, 20);
             this.mnuAlumnos.Text = "Alumnos";
-            // 
-            // mnuPermisos
-            // 
-            this.mnuPermisos.Name = "mnuPermisos";
-            this.mnuPermisos.Size = new System.Drawing.Size(67, 20);
-            this.mnuPermisos.Text = "Permisos";
-            this.mnuPermisos.Click += new System.EventHandler(this.mnuPermisos_Click);
             // 
             // mnuProfesores
             // 
@@ -144,14 +140,28 @@
             this.mnuPlanes.Size = new System.Drawing.Size(53, 20);
             this.mnuPlanes.Text = "Planes";
             // 
-            // Principal
+            // mnuPermisos
+            // 
+            this.mnuPermisos.Name = "mnuPermisos";
+            this.mnuPermisos.Size = new System.Drawing.Size(67, 20);
+            this.mnuPermisos.Text = "Permisos";
+            this.mnuPermisos.Click += new System.EventHandler(this.mnuPermisos_Click);
+            // 
+            // mnuInscripciones
+            // 
+            this.mnuInscripciones.AccessibleDescription = "Personas_Materias";
+            this.mnuInscripciones.Name = "mnuInscripciones";
+            this.mnuInscripciones.Size = new System.Drawing.Size(88, 20);
+            this.mnuInscripciones.Text = "Inscripciones";
+            // 
+            // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 398);
             this.Controls.Add(this.mnuPrincipal);
             this.MainMenuStrip = this.mnuPrincipal;
-            this.Name = "Principal";
+            this.Name = "frmPrincipal";
             this.Text = "Sistema Academia";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Principal_Load);
@@ -177,6 +187,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuComisiones;
         private System.Windows.Forms.ToolStripMenuItem mnuEspecialidades;
         private System.Windows.Forms.ToolStripMenuItem mnuPlanes;
+        private System.Windows.Forms.ToolStripMenuItem mnuInscripciones;
     }
 }
 

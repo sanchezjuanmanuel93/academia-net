@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class AltaPermiso
+    partial class frmAltaPermiso
     {
         /// <summary>
         /// Required designer variable.
@@ -221,13 +221,13 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(148, 156);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // AltaPermiso
+            // frmAltaPermiso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 165);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Name = "AltaPermiso";
+            this.Name = "frmAltaPermiso";
             this.Text = "Nuevo Permiso";
             this.Load += new System.EventHandler(this.AltaPermiso_Load);
             this.flowLayoutPanel1.ResumeLayout(false);

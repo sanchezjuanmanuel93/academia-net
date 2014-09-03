@@ -22,9 +22,8 @@ namespace CapaDeDatos
             myCon = new SqlConnection(connectionString);
         }
 
-        public Modulo getNroModulo(string modulo)
+        public int getNroModulo(string modulo)
         {
-            Modulo mod = null;
             dTable = new DataTable("modulos");
             myCon.Open();
             adapter = new SqlDataAdapter("select * from Modulo m where m.Descripcion = '" + modulo + "';", myCon);
@@ -33,12 +32,10 @@ namespace CapaDeDatos
 
             if (dTable.Rows.Count > 0)
             {
-                mod = new Modulo();
-                mod.Id_mod = (int)dTable.Rows[0]["Id_mod"];
-                mod.modulo = dTable.Rows[0]["Descripcion"].ToString();
+                    return (int)dTable.Rows[0]["Id_mod"];
             }
 
-            return mod;
+            return -1;
 
         }
 

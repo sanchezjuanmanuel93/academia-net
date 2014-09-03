@@ -11,10 +11,10 @@ using Entidades;
 
 namespace Presentacion
 {
-    public partial class AltaPermiso : Form
+    public partial class frmAltaPermiso : Form
     {
         
-        public AltaPermiso()
+        public frmAltaPermiso()
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace Presentacion
 
         private void AltaPermiso_Load(object sender, EventArgs e)
         {
-            cmbUsuario.DataSource = cP.getUsuarios();
+            cmbUsuario.DataSource = cP.mostrarUsuarios();
             cmbUsuario.DisplayMember = "Usu";
         }
 

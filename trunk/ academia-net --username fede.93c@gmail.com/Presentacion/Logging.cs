@@ -11,13 +11,13 @@ using Entidades;
 
 namespace Presentacion
 {
-    public partial class Logging : Form
+    public partial class frmLogging : Form
     {
 
         ControladorLogging contLogging = new ControladorLogging();
         Persona persona;
 
-        public Logging()
+        public frmLogging()
         {
             InitializeComponent();
         }

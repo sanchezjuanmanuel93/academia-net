@@ -22,6 +22,25 @@ namespace CapaDeDatos
         }
 
 
+        public bool eliminarPermiso(string usuario, int nroModulo)
+        {
+            
+
+            int ok;
+            string querry = "DELETE FROM Usuarios_Modulos where Usuarios_Modulos.Usu = '" + usuario + "' and Usuarios_Modulos.Id_mod = " + nroModulo;
+
+            SqlCommand cmd = new SqlCommand(querry, myCon);
+            cmd.CommandType = CommandType.Text;
+            myCon.Open();
+            ok = cmd.ExecuteNonQuery();
+            myCon.Close();
+
+            if (ok > 0)
+            {
+                return true;
+            }
+            return false;
+        }
 
         public Permiso[] getPermisos()
         {

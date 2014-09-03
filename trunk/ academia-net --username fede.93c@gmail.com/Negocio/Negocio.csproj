@@ -42,6 +42,7 @@
     <Compile Include="ControladorLogging.cs" />
     <Compile Include="ControladorPermisos.cs" />
     <Compile Include="ControladorPrincipal.cs" />
+    <Compile Include="ControladorUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

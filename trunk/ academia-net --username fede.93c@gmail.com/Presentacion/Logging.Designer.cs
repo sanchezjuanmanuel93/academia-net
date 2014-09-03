@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class Logging
+    partial class frmLogging
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,7 @@
             // 
             // btnIngresar
             // 
+            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.Location = new System.Drawing.Point(12, 89);
             this.btnIngresar.Name = "btnIngresar";
@@ -83,7 +84,7 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Contraseña";
             // 
-            // Logging
+            // frmLogging
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -94,7 +95,7 @@
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.btnIngresar);
             this.KeyPreview = true;
-            this.Name = "Logging";
+            this.Name = "frmLogging";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingreso al sistema";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Logging_FormClosing);

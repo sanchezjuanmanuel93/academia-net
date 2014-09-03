@@ -44,5 +44,43 @@ namespace CapaDeDatos
             return usuarios;
         }
 
+
+        public bool eliminarUsuario(string usuario)
+        {
+            int ok;
+            string querry = "delete from Usuario where Usuario.Usu = '" + usuario + "'";
+
+            SqlCommand cmd = new SqlCommand(querry, myCon);
+            cmd.CommandType = CommandType.Text;
+            myCon.Open();
+            ok = cmd.ExecuteNonQuery();
+            myCon.Close();
+
+            if (ok > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool agregaUsuario(int legajo, string usuario, string clave)
+        {
+            int ok;
+            string querry = "insert into Usuario (Usu, Clave, Legajo) ";
+            querry += "values ('" + usuario +"','" + clave + "'," + legajo + ");";
+
+            SqlCommand cmd = new SqlCommand(querry, myCon);
+            cmd.CommandType = CommandType.Text;
+            myCon.Open();
+            ok = cmd.ExecuteNonQuery();
+            myCon.Close();
+
+            if (ok > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
     }
 }
