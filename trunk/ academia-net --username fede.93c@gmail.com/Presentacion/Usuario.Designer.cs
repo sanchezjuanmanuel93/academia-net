@@ -30,7 +30,6 @@
         {
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnConsulta = new System.Windows.Forms.Button();
             this.btnModifica = new System.Windows.Forms.Button();
             this.btnBaja = new System.Windows.Forms.Button();
             this.btnAlta = new System.Windows.Forms.Button();
@@ -49,12 +48,10 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.btnConsulta, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnModifica, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnBaja, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnAlta, 0, 0);
@@ -66,23 +63,12 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(370, 65);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // btnConsulta
-            // 
-            this.btnConsulta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnConsulta.Location = new System.Drawing.Point(279, 3);
-            this.btnConsulta.Name = "btnConsulta";
-            this.btnConsulta.Size = new System.Drawing.Size(88, 59);
-            this.btnConsulta.TabIndex = 5;
-            this.btnConsulta.Text = "Consulta";
-            this.btnConsulta.UseVisualStyleBackColor = true;
-            this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
-            // 
             // btnModifica
             // 
             this.btnModifica.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnModifica.Location = new System.Drawing.Point(187, 3);
+            this.btnModifica.Location = new System.Drawing.Point(249, 3);
             this.btnModifica.Name = "btnModifica";
-            this.btnModifica.Size = new System.Drawing.Size(86, 59);
+            this.btnModifica.Size = new System.Drawing.Size(118, 59);
             this.btnModifica.TabIndex = 4;
             this.btnModifica.Text = "Modifica";
             this.btnModifica.UseVisualStyleBackColor = true;
@@ -90,9 +76,9 @@
             // btnBaja
             // 
             this.btnBaja.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBaja.Location = new System.Drawing.Point(95, 3);
+            this.btnBaja.Location = new System.Drawing.Point(126, 3);
             this.btnBaja.Name = "btnBaja";
-            this.btnBaja.Size = new System.Drawing.Size(86, 59);
+            this.btnBaja.Size = new System.Drawing.Size(117, 59);
             this.btnBaja.TabIndex = 3;
             this.btnBaja.Text = "Baja";
             this.btnBaja.UseVisualStyleBackColor = true;
@@ -103,7 +89,7 @@
             this.btnAlta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAlta.Location = new System.Drawing.Point(3, 3);
             this.btnAlta.Name = "btnAlta";
-            this.btnAlta.Size = new System.Drawing.Size(86, 59);
+            this.btnAlta.Size = new System.Drawing.Size(117, 59);
             this.btnAlta.TabIndex = 2;
             this.btnAlta.Text = "Alta";
             this.btnAlta.UseVisualStyleBackColor = true;
@@ -130,7 +116,6 @@
 
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btnConsulta;
         private System.Windows.Forms.Button btnModifica;
         private System.Windows.Forms.Button btnBaja;
         private System.Windows.Forms.Button btnAlta;

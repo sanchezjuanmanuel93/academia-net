@@ -14,16 +14,26 @@ namespace Presentacion
     public partial class frmUsuario : Form
     {
         
-        public frmUsuario()
+        public frmUsuario(Persona p)
         {
             InitializeComponent();
+            persona = p;
         }
 
+        Persona persona;
         ControladorUsuarios cU = new ControladorUsuarios();
 
         private void Usuario_Load(object sender, EventArgs e)
         {
             llenarGrilla();
+            chequearPermisos();
+        }
+
+        void chequearPermisos()
+        {
+            btnAlta.Visible = cU.getPermiso(persona.Usuario, "alta");
+            btnBaja.Visible = cU.getPermiso(persona.Usuario, "baja");
+            btnModifica.Visible = cU.getPermiso(persona.Usuario, "modifica");
         }
 
         void llenarGrilla()

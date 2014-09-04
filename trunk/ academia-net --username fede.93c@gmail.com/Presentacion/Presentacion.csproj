@@ -68,6 +68,18 @@
     <Compile Include="Permisos.Designer.cs">
       <DependentUpon>Permisos.cs</DependentUpon>
     </Compile>
+    <Compile Include="AltaPersona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AltaPersona.Designer.cs">
+      <DependentUpon>AltaPersona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Personas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personas.Designer.cs">
+      <DependentUpon>Personas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +105,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Permisos.resx">
       <DependentUpon>Permisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AltaPersona.resx">
+      <DependentUpon>AltaPersona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personas.resx">
+      <DependentUpon>Personas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
