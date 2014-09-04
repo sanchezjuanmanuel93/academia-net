@@ -13,17 +13,26 @@ namespace Presentacion
 {
     public partial class frmPersonas : Form
     {
-        public frmPersonas()
+        public frmPersonas(Persona p)
         {
             InitializeComponent();
+            persona = p;
         }
 
         ControladorPersonas controladorPersonas = new ControladorPersonas();
-
+        Persona persona;
 
         private void frmPersonas_Load(object sender, EventArgs e)
         {
             llenarGrilla();
+            chequearPermisos();
+        }
+
+        void chequearPermisos()
+        {
+            btnAlta.Visible = controladorPersonas.getPermiso(persona.Usuario, "alta");
+            btnBaja.Visible = controladorPersonas.getPermiso(persona.Usuario, "baja");
+            btnGuardar.Visible = controladorPersonas.getPermiso(persona.Usuario, "modifica");
         }
 
         void llenarGrilla()
@@ -49,6 +58,11 @@ namespace Presentacion
                 controladorPersonas.eliminarPersona(dgvRow.Cells["Legajo"].Value.ToString());
             }
             llenarGrilla();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

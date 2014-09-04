@@ -44,76 +44,94 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AltaPermiso.cs">
+    <Compile Include="frmAltaPermiso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AltaPermiso.Designer.cs">
-      <DependentUpon>AltaPermiso.cs</DependentUpon>
+    <Compile Include="frmAltaPermiso.Designer.cs">
+      <DependentUpon>frmAltaPermiso.cs</DependentUpon>
     </Compile>
-    <Compile Include="AltaUsuario.cs">
+    <Compile Include="frmAltaUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AltaUsuario.Designer.cs">
-      <DependentUpon>AltaUsuario.cs</DependentUpon>
+    <Compile Include="frmAltaUsuario.Designer.cs">
+      <DependentUpon>frmAltaUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logging.cs">
+    <Compile Include="frmInscripciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Logging.Designer.cs">
-      <DependentUpon>Logging.cs</DependentUpon>
+    <Compile Include="frmInscripciones.Designer.cs">
+      <DependentUpon>frmInscripciones.cs</DependentUpon>
     </Compile>
-    <Compile Include="Permisos.cs">
+    <Compile Include="frmLogging.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Permisos.Designer.cs">
-      <DependentUpon>Permisos.cs</DependentUpon>
+    <Compile Include="frmLogging.Designer.cs">
+      <DependentUpon>frmLogging.cs</DependentUpon>
     </Compile>
-    <Compile Include="AltaPersona.cs">
+    <Compile Include="frmMaterias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AltaPersona.Designer.cs">
-      <DependentUpon>AltaPersona.cs</DependentUpon>
+    <Compile Include="frmMaterias.Designer.cs">
+      <DependentUpon>frmMaterias.cs</DependentUpon>
     </Compile>
-    <Compile Include="Personas.cs">
+    <Compile Include="frmPermisos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Personas.Designer.cs">
-      <DependentUpon>Personas.cs</DependentUpon>
+    <Compile Include="frmPermisos.Designer.cs">
+      <DependentUpon>frmPermisos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Principal.cs">
+    <Compile Include="frmAltaPersona.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal.Designer.cs">
-      <DependentUpon>Principal.cs</DependentUpon>
+    <Compile Include="frmAltaPersona.Designer.cs">
+      <DependentUpon>frmAltaPersona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPersonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPersonas.Designer.cs">
+      <DependentUpon>frmPersonas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Usuario.cs">
+    <Compile Include="frmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuario.Designer.cs">
-      <DependentUpon>Usuario.cs</DependentUpon>
+    <Compile Include="frmUsuario.Designer.cs">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AltaPermiso.resx">
-      <DependentUpon>AltaPermiso.cs</DependentUpon>
+    <EmbeddedResource Include="frmAltaPermiso.resx">
+      <DependentUpon>frmAltaPermiso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AltaUsuario.resx">
-      <DependentUpon>AltaUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="frmAltaUsuario.resx">
+      <DependentUpon>frmAltaUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Logging.resx">
-      <DependentUpon>Logging.cs</DependentUpon>
+    <EmbeddedResource Include="frmInscripciones.resx">
+      <DependentUpon>frmInscripciones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Permisos.resx">
-      <DependentUpon>Permisos.cs</DependentUpon>
+    <EmbeddedResource Include="frmLogging.resx">
+      <DependentUpon>frmLogging.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AltaPersona.resx">
-      <DependentUpon>AltaPersona.cs</DependentUpon>
+    <EmbeddedResource Include="frmMaterias.resx">
+      <DependentUpon>frmMaterias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Personas.resx">
-      <DependentUpon>Personas.cs</DependentUpon>
+    <EmbeddedResource Include="frmPermisos.resx">
+      <DependentUpon>frmPermisos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal.resx">
-      <DependentUpon>Principal.cs</DependentUpon>
+    <EmbeddedResource Include="frmAltaPersona.resx">
+      <DependentUpon>frmAltaPersona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPersonas.resx">
+      <DependentUpon>frmPersonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -124,8 +142,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Usuario.resx">
-      <DependentUpon>Usuario.cs</DependentUpon>
+    <EmbeddedResource Include="frmUsuario.resx">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

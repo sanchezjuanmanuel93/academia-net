@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Inscripciones.cs" />
+    <Compile Include="Materias.cs" />
     <Compile Include="Modulo.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="Persona.cs" />

@@ -121,6 +121,7 @@
             this.mnuMaterias.Name = "mnuMaterias";
             this.mnuMaterias.Size = new System.Drawing.Size(64, 20);
             this.mnuMaterias.Text = "Materias";
+            this.mnuMaterias.Click += new System.EventHandler(this.mnuMaterias_Click);
             // 
             // mnuComisiones
             // 
@@ -134,6 +135,7 @@
             this.mnuInscripciones.Name = "mnuInscripciones";
             this.mnuInscripciones.Size = new System.Drawing.Size(88, 20);
             this.mnuInscripciones.Text = "Inscripciones";
+            this.mnuInscripciones.Click += new System.EventHandler(this.mnuInscripciones_Click);
             // 
             // mnuEspecialidades
             // 
