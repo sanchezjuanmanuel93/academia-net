@@ -13,22 +13,45 @@ namespace Presentacion
 {
     public partial class frmPermisos : Form
     {
-        public frmPermisos()
+        public frmPermisos(Persona p)
         {
             InitializeComponent();
+            persona = p;
         }
 
-        ControladorPermisos cp = new ControladorPermisos();
+        Persona persona;
+        ControladorPermisos controladorPermisos = new ControladorPermisos();
 
 
         private void Permisos_Load(object sender, EventArgs e)
         {
             llenarGrilla();
+            chequearPermisos();
+        }
+
+        void chequearPermisos()
+        {
+            btnAlta.Visible = controladorPermisos.getPermiso(persona.Usuario, "alta");
+            btnBaja.Visible = controladorPermisos.getPermiso(persona.Usuario, "baja");
+
+            if ((btnBaja.Visible == false) && (btnAlta.Visible == false))
+            {
+                btnGuardar.Visible = false;
+            }
+
+
+            bool modifica = !controladorPermisos.getPermiso(persona.Usuario, "modifica");
+            dgvPermisos.Columns["Alta"].ReadOnly = modifica;
+            dgvPermisos.Columns["Baja"].ReadOnly = modifica;
+            dgvPermisos.Columns["Modifica"].ReadOnly = modifica;
+            dgvPermisos.Columns["Consulta"].ReadOnly = modifica;
+
+
         }
 
         void llenarGrilla()
         {
-            dgvPermisos.DataSource = cp.getUsuariosyPermisos();
+            dgvPermisos.DataSource = controladorPermisos.getUsuariosyPermisos();
             dgvPermisos.Columns["nroModulo"].Visible = false;
             dgvPermisos.Columns["Usuario"].ReadOnly = true;
             dgvPermisos.Columns["Modulo"].ReadOnly = true;
@@ -46,12 +69,15 @@ namespace Presentacion
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             guardar();
+
         }
 
         void guardar()
         {
-            cp.actualizaPermisos((Permiso[])dgvPermisos.DataSource);
+            controladorPermisos.actualizaPermisos((Permiso[])dgvPermisos.DataSource);
             MessageBox.Show("Guardado exitosamente.", "Sistema Academia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            llenarGrilla();
+            chequearPermisos();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -64,7 +90,7 @@ namespace Presentacion
             foreach (DataGridViewCell cell in dgvPermisos.SelectedCells)
             {
                 DataGridViewRow fila = cell.OwningRow;
-                cp.eliminarPermiso(fila.Cells["Usuario"].Value.ToString(), fila.Cells["Modulo"].Value.ToString());
+                controladorPermisos.eliminarPermiso(fila.Cells["Usuario"].Value.ToString(), fila.Cells["Modulo"].Value.ToString());
             }
             llenarGrilla();
         }
@@ -85,6 +111,21 @@ namespace Presentacion
                 default:
                     break;
             }
+        }
+
+        private void dgvPermisos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvPermisos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmPermisos_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

@@ -9,37 +9,75 @@ namespace Negocio
 {
     public class ControladorPermisos
     {
-        CatalogoPermisos cp;
-        CatalogoUsuarios cU;
-        CatalogoModulos cM;
+        CatalogoPermisos catalogoPermisos;
+        CatalogoUsuarios catalogoUsuarios;
+        CatalogoModulos catalogoModulos;
 
         public ControladorPermisos()
         {
-            cp = new CatalogoPermisos();
-            cU = new CatalogoUsuarios();
-            cM = new CatalogoModulos(); 
+            catalogoPermisos = new CatalogoPermisos();
+            catalogoUsuarios = new CatalogoUsuarios();
+            catalogoModulos = new CatalogoModulos(); 
         }
         public Permiso[] getUsuariosyPermisos()
         {         
-            Permiso[] permisos = cp.getPermisos();
+            Permiso[] permisos = catalogoPermisos.getPermisos();
             return permisos;
+        }
+
+        public bool getPermiso(string usuario, string boton)
+        {
+            Permiso[] permisos = catalogoPermisos.getPermisos();
+            foreach (Permiso permiso in permisos)
+            {
+                if (permiso != null)
+                {
+                    if ((permiso.Usuario == usuario) && (permiso.Modulo == "Permisos"))
+                    {
+                        switch (boton)
+                        {
+                            case "alta":
+                                if (permiso.Alta == true)
+                                {
+                                    return true;
+                                }
+                                break;
+                            case "baja":
+                                if (permiso.Baja == true)
+                                {
+                                    return true;
+                                }
+                                break;
+                            case "modifica":
+                                if (permiso.Modifica == true)
+                                {
+                                    return true;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            return false;
         }
 
         public Usuario[] mostrarUsuarios()
         {
-            return cU.getUsuarios();
+            return catalogoUsuarios.getUsuarios();
         }
 
         public bool eliminarPermiso(string usuario, string modulo)
         {
-            int nroMod = cM.getNroModulo(modulo);
-            cp.eliminarPermiso(usuario, nroMod);
+            int nroMod = catalogoModulos.getNroModulo(modulo);
+            catalogoPermisos.eliminarPermiso(usuario, nroMod);
             return true;
         }
 
         public bool getPermisoUsuarioModulo(string Usuario, string nombreModulo)
         {
-            Permiso[] permisos = cp.getPermisos();
+            Permiso[] permisos = catalogoPermisos.getPermisos();
             foreach (Permiso permiso in permisos)
             {
                 if (permiso!=null)
@@ -57,28 +95,29 @@ namespace Negocio
         {
             foreach (Permiso permiso in permisos)
             {
-                cp.actualizarPermisos(permiso);
+                catalogoPermisos.actualizarPermisos(permiso);
             }
         }
 
         public Modulo[] getModulos()
         {
-            Modulo[] modulos = cM.getModulos();
+            Modulo[] modulos = catalogoModulos.getModulos();
             return modulos;
         }
 
         public Modulo[] getModulosSinUso(string usuario)
         {
-            Modulo[] modulos = cM.getModulosSinUso(usuario);
+            Modulo[] modulos = catalogoModulos.getModulosSinUso(usuario);
             return modulos;
         }
 
 
         public bool agregarPermiso(string usuario, string modulo, bool alta, bool baja, bool modifica, bool consulta)
         {
-            int nroMod = cM.getNroModulo(modulo);
-            return cp.agregarPermiso(usuario, nroMod, alta, baja, modifica, consulta);
+            int nroMod = catalogoModulos.getNroModulo(modulo);
+            return catalogoPermisos.agregarPermiso(usuario, nroMod, alta, baja, modifica, consulta);
         }
+
 
        
     }

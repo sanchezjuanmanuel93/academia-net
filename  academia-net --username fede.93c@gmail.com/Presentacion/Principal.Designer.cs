@@ -34,14 +34,13 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAlumnos = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuProfesores = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPermisos = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPersonas = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMaterias = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuComisiones = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuInscripciones = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEspecialidades = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPlanes = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuPermisos = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuInscripciones = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,8 +50,7 @@
             this.inicioToolStripMenuItem,
             this.mnuUsuarios,
             this.mnuPermisos,
-            this.mnuAlumnos,
-            this.mnuProfesores,
+            this.mnuPersonas,
             this.mnuMaterias,
             this.mnuComisiones,
             this.mnuInscripciones,
@@ -104,17 +102,19 @@
             this.mnuUsuarios.Text = "Usuarios";
             this.mnuUsuarios.Click += new System.EventHandler(this.mnuUsuarios_Click);
             // 
-            // mnuAlumnos
+            // mnuPermisos
             // 
-            this.mnuAlumnos.Name = "mnuAlumnos";
-            this.mnuAlumnos.Size = new System.Drawing.Size(67, 20);
-            this.mnuAlumnos.Text = "Alumnos";
+            this.mnuPermisos.Name = "mnuPermisos";
+            this.mnuPermisos.Size = new System.Drawing.Size(67, 20);
+            this.mnuPermisos.Text = "Permisos";
+            this.mnuPermisos.Click += new System.EventHandler(this.mnuPermisos_Click);
             // 
-            // mnuProfesores
+            // mnuPersonas
             // 
-            this.mnuProfesores.Name = "mnuProfesores";
-            this.mnuProfesores.Size = new System.Drawing.Size(74, 20);
-            this.mnuProfesores.Text = "Profesores";
+            this.mnuPersonas.Name = "mnuPersonas";
+            this.mnuPersonas.Size = new System.Drawing.Size(66, 20);
+            this.mnuPersonas.Text = "Personas";
+            this.mnuPersonas.Click += new System.EventHandler(this.mnuPersonas_Click);
             // 
             // mnuMaterias
             // 
@@ -128,6 +128,13 @@
             this.mnuComisiones.Size = new System.Drawing.Size(81, 20);
             this.mnuComisiones.Text = "Comisiones";
             // 
+            // mnuInscripciones
+            // 
+            this.mnuInscripciones.AccessibleDescription = "Personas_Materias";
+            this.mnuInscripciones.Name = "mnuInscripciones";
+            this.mnuInscripciones.Size = new System.Drawing.Size(88, 20);
+            this.mnuInscripciones.Text = "Inscripciones";
+            // 
             // mnuEspecialidades
             // 
             this.mnuEspecialidades.Name = "mnuEspecialidades";
@@ -139,20 +146,6 @@
             this.mnuPlanes.Name = "mnuPlanes";
             this.mnuPlanes.Size = new System.Drawing.Size(53, 20);
             this.mnuPlanes.Text = "Planes";
-            // 
-            // mnuPermisos
-            // 
-            this.mnuPermisos.Name = "mnuPermisos";
-            this.mnuPermisos.Size = new System.Drawing.Size(67, 20);
-            this.mnuPermisos.Text = "Permisos";
-            this.mnuPermisos.Click += new System.EventHandler(this.mnuPermisos_Click);
-            // 
-            // mnuInscripciones
-            // 
-            this.mnuInscripciones.AccessibleDescription = "Personas_Materias";
-            this.mnuInscripciones.Name = "mnuInscripciones";
-            this.mnuInscripciones.Size = new System.Drawing.Size(88, 20);
-            this.mnuInscripciones.Text = "Inscripciones";
             // 
             // frmPrincipal
             // 
@@ -181,8 +174,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuSalir;
         private System.Windows.Forms.ToolStripMenuItem mnuPermisos;
         private System.Windows.Forms.ToolStripMenuItem mnuUsuarios;
-        private System.Windows.Forms.ToolStripMenuItem mnuAlumnos;
-        private System.Windows.Forms.ToolStripMenuItem mnuProfesores;
+        private System.Windows.Forms.ToolStripMenuItem mnuPersonas;
         private System.Windows.Forms.ToolStripMenuItem mnuMaterias;
         private System.Windows.Forms.ToolStripMenuItem mnuComisiones;
         private System.Windows.Forms.ToolStripMenuItem mnuEspecialidades;

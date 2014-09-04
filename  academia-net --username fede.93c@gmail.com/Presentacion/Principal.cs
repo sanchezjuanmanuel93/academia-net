@@ -36,6 +36,7 @@ namespace Presentacion
                 if (MessageBox.Show("Seguro que desea cerrar la sesion?", "Atencion!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
                     persona = null;
+                    this.Text = "Sistema Academia";
                     foreach (Form form in this.MdiChildren)
                     {
                         form.Close();
@@ -49,12 +50,15 @@ namespace Presentacion
             }
 
             
-                mnuAlumnos.Visible = mnuProfesores.Visible
-        = mnuMaterias.Visible = mnuPermisos.Visible
-        = mnuUsuarios.Visible = mnuComisiones.Visible
-        = mnuEspecialidades.Visible = mnuPlanes.Visible
+        mnuPersonas.Visible
+        = mnuMaterias.Visible 
+        = mnuPermisos.Visible
+        = mnuUsuarios.Visible 
+        = mnuComisiones.Visible
+        = mnuEspecialidades.Visible 
+        = mnuPlanes.Visible
         = mnuInscripciones.Visible = false;
-                this.Text = "Sistema Academia";
+
 
                 return true;
 
@@ -107,16 +111,23 @@ namespace Presentacion
 
         private void mnuPermisos_Click(object sender, EventArgs e)
         {
-            frmPermisos permisos = new frmPermisos();
+            frmPermisos permisos = new frmPermisos(persona);
             permisos.MdiParent = this;
             permisos.Show();
         }
 
         private void mnuUsuarios_Click(object sender, EventArgs e)
         {
-            frmUsuario frmUsuario = new frmUsuario();
+            frmUsuario frmUsuario = new frmUsuario(persona);
             frmUsuario.MdiParent = this;
             frmUsuario.Show();
+        }
+
+        private void mnuPersonas_Click(object sender, EventArgs e)
+        {
+            frmPersonas frmPersonas = new frmPersonas();
+            frmPersonas.MdiParent = this;
+            frmPersonas.Show();
         }
     }
 }
