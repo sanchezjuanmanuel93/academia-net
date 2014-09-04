@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControladorInscripciones.cs" />
     <Compile Include="ControladorLogging.cs" />
+    <Compile Include="ControladorMaterias.cs" />
     <Compile Include="ControladorPermisos.cs" />
     <Compile Include="ControladorPersonas.cs" />
     <Compile Include="ControladorPrincipal.cs" />

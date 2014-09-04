@@ -11,7 +11,7 @@ namespace CapaDeDatos
 {
     public class CatalogoModulos
     {
-        string connectionString = "Data Source=FEDEE-PC\\SQLSERVER08R2;Initial Catalog=Academia;Integrated Security=True";
+        string connectionString = ConnectionString.connectionString;
 
         SqlConnection myCon;
         SqlDataAdapter adapter;

@@ -37,8 +37,14 @@ namespace Presentacion
         {
             cmbTipo.DataSource = controladorPersonas.getTipos();
             cmbTipo.DisplayMember = "Descripcion";
+        }
+
+        private void frmAltaPersonas_Shown(object sender, EventArgs e)
+        {
             txtLegajo.Focus();
         }
+
+
 
 
     }

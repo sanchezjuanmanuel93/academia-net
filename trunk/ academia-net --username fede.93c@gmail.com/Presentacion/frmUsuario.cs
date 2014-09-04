@@ -21,7 +21,7 @@ namespace Presentacion
         }
 
         Persona persona;
-        ControladorUsuarios cU = new ControladorUsuarios();
+        ControladorUsuarios controladorUsuarios = new ControladorUsuarios();
 
         private void Usuario_Load(object sender, EventArgs e)
         {
@@ -31,14 +31,14 @@ namespace Presentacion
 
         void chequearPermisos()
         {
-            btnAlta.Visible = cU.getPermiso(persona.Usuario, "alta");
-            btnBaja.Visible = cU.getPermiso(persona.Usuario, "baja");
-            btnModifica.Visible = cU.getPermiso(persona.Usuario, "modifica");
+            btnAlta.Visible = controladorUsuarios.getPermiso(persona.Usuario, "alta");
+            btnBaja.Visible = controladorUsuarios.getPermiso(persona.Usuario, "baja");
+            btnModifica.Visible = controladorUsuarios.getPermiso(persona.Usuario, "modifica");
         }
 
         void llenarGrilla()
         {
-            dgvUsuarios.DataSource = cU.getUsuarios();
+            dgvUsuarios.DataSource = controladorUsuarios.getUsuarios();
         }
 
         private void btnBaja_Click(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace Presentacion
             foreach (DataGridViewCell cell in dgvUsuarios.SelectedCells)
             {
                 DataGridViewRow fila = cell.OwningRow;
-                cU.eliminarUsuario(fila.Cells["Usu"].Value.ToString());
+                controladorUsuarios.eliminarUsuario(fila.Cells["Usu"].Value.ToString());
             }
             llenarGrilla();
         }

@@ -227,6 +227,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Personas";
             this.Load += new System.EventHandler(this.frmAltaPersonas_Load);
+            this.Shown += new System.EventHandler(this.frmAltaPersonas_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

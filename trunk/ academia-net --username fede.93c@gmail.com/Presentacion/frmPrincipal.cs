@@ -125,9 +125,23 @@ namespace Presentacion
 
         private void mnuPersonas_Click(object sender, EventArgs e)
         {
-            frmPersonas frmPersonas = new frmPersonas();
+            frmPersonas frmPersonas = new frmPersonas(persona);
             frmPersonas.MdiParent = this;
             frmPersonas.Show();
+        }
+
+        private void mnuMaterias_Click(object sender, EventArgs e)
+        {
+            frmMaterias frmMaterias = new frmMaterias();
+            frmMaterias.MdiParent = this;
+            frmMaterias.Show();
+        }
+
+        private void mnuInscripciones_Click(object sender, EventArgs e)
+        {
+            frmInscripciones frmInscripciones = new frmInscripciones();
+            frmInscripciones.MdiParent = this;
+            frmInscripciones.Show();
         }
     }
 }
