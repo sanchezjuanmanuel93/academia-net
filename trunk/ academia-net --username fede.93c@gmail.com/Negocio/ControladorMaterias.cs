@@ -15,5 +15,10 @@ namespace Negocio
         {
             return catalogoMaterias.getMaterias();
         }
+
+        public bool agregarMateria(string nro, string nombre)
+        {
+            return catalogoMaterias.agregarMateria(nro, nombre);
+        }
     }
 }

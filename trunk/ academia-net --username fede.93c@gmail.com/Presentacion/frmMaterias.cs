@@ -22,7 +22,21 @@ namespace Presentacion
 
         private void frmMaterias_Load(object sender, EventArgs e)
         {
+            consulta();
+        }
+
+        void consulta()
+        {
             dgvMaterias.DataSource = controladorMaterias.getMaterias();
+            dgvMaterias.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void btnAlta_Click(object sender, EventArgs e)
+        {
+            frmAltaMateria frmAltaMateria = new frmAltaMateria();
+            frmAltaMateria.ShowDialog();
+            consulta();
+
         }
     }
 }
