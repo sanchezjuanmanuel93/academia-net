@@ -9,7 +9,8 @@ namespace Negocio
 {
     public class ControladorLogging
     {
-        CatalogoPersonas datos = new CatalogoPersonas();
+        CatalogoPersonas datos = CatalogoPersonas.Instancia;
+
         Persona persona;
         public bool ingresar(string Usuario, string Contraseña)
         {

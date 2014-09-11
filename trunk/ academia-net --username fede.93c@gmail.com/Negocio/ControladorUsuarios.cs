@@ -9,16 +9,10 @@ namespace Negocio
 {
     public class ControladorUsuarios
     {
-        CatalogoUsuarios catalogoUsuarios;
-        CatalogoPersonas catalogoPersonas;
-        CatalogoPermisos catalogoPermisos;
+        CatalogoUsuarios catalogoUsuarios = CatalogoUsuarios.Instancia;
+        CatalogoPersonas catalogoPersonas = CatalogoPersonas.Instancia;
+        CatalogoPermisos catalogoPermisos = CatalogoPermisos.Instancia;
 
-        public ControladorUsuarios()
-        {
-            catalogoUsuarios = new CatalogoUsuarios();
-            catalogoPersonas = new CatalogoPersonas();
-            catalogoPermisos = new CatalogoPermisos();
-        }
 
         public List<Usuario> getUsuarios()
         {

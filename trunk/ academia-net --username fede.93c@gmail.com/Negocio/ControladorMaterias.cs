@@ -9,7 +9,7 @@ namespace Negocio
 {
     public class ControladorMaterias
     {
-        CatalogoMaterias catalogoMaterias = new CatalogoMaterias();
+        CatalogoMaterias catalogoMaterias = CatalogoMaterias.Instancia;
 
         public List<Materias> getMaterias()
         {

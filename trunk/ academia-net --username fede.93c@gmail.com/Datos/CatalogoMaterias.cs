@@ -9,7 +9,24 @@ namespace CapaDeDatos
 {
     public class CatalogoMaterias
     {
-        string connectionString = ConnectionString.connectionString;
+
+
+        private static CatalogoMaterias instancia;
+
+        public static CatalogoMaterias Instancia
+        {
+            get
+            {
+                if (instancia == null)
+                {
+
+                    instancia = new CatalogoMaterias();
+                }
+                return instancia;
+            }
+        }
+
+
 
         SqlConnection myCon;
         SqlDataAdapter adapter;
@@ -18,7 +35,7 @@ namespace CapaDeDatos
         
         public CatalogoMaterias()
         {
-            myCon = new SqlConnection(connectionString);
+            myCon = ConnectionString.Conexion;
         }
 
         public List<Materias> getMaterias()

@@ -6,11 +6,28 @@ using Entidades;
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace CapaDeDatos
 {
+
     public class CatalogoInscripciones
     {
-        string connectionString = ConnectionString.connectionString;
+
+
+        private static CatalogoInscripciones instancia;
+
+        public static CatalogoInscripciones Instancia
+        {
+            get
+            {
+                if (instancia == null)
+                {
+                    
+                    instancia = new CatalogoInscripciones();
+                }
+                return instancia;
+            }
+        }
 
         SqlConnection myCon;
         SqlDataAdapter adapter;
@@ -18,7 +35,7 @@ namespace CapaDeDatos
 
         public CatalogoInscripciones()
         {
-            myCon = new SqlConnection(connectionString);
+            myCon = ConnectionString.Conexion;
         }
 
         public List<Inscripciones> getInscripciones()
