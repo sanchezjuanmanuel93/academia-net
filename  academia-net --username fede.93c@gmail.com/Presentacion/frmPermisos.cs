@@ -22,6 +22,7 @@ namespace Presentacion
         Persona persona;
         ControladorPermisos controladorPermisos = new ControladorPermisos();
 
+        bool cambios = false;
 
         private void Permisos_Load(object sender, EventArgs e)
         {
@@ -97,20 +98,23 @@ namespace Presentacion
 
         private void Permisos_FormClosing(object sender, FormClosingEventArgs e)
         {
-            switch (MessageBox.Show("Desea guardar los cambios?", "Atento!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question))
+            if (cambios)
             {
+                switch (MessageBox.Show("Desea guardar los cambios?", "Atento!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question))
+                {
 
-                case DialogResult.Cancel:
-                    e.Cancel = true;
-                    break;
-                case DialogResult.No:
-                    break;
-                case DialogResult.Yes:
-                    guardar();
-                    break;
-                default:
-                    break;
-            }
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                    case DialogResult.No:
+                        break;
+                    case DialogResult.Yes:
+                        guardar();
+                        break;
+                    default:
+                        break;
+                }
+            }       
         }
 
         private void dgvPermisos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -120,7 +124,7 @@ namespace Presentacion
 
         private void dgvPermisos_Click(object sender, EventArgs e)
         {
-
+            cambios = true;
         }
 
         private void frmPermisos_Click(object sender, EventArgs e)

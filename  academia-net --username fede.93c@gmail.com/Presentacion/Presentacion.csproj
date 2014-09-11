@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAltaMateria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAltaMateria.Designer.cs">
+      <DependentUpon>frmAltaMateria.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAltaPermiso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     <Compile Include="frmUsuario.Designer.cs">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAltaMateria.resx">
+      <DependentUpon>frmAltaMateria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAltaPermiso.resx">
       <DependentUpon>frmAltaPermiso.cs</DependentUpon>
     </EmbeddedResource>
