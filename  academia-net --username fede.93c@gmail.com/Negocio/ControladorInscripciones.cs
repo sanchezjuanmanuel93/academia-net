@@ -9,7 +9,7 @@ namespace Negocio
 {
     public class ControladorInscripciones
     {
-        CatalogoInscripciones catalogoInscrpciones = new CatalogoInscripciones();
+        CatalogoInscripciones catalogoInscrpciones = CatalogoInscripciones.Instancia;
 
         public List<Inscripciones> getInscripciones()
         {

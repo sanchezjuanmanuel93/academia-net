@@ -10,8 +10,8 @@ namespace Negocio
     public class ControladorPersonas
     {
 
-        CatalogoPersonas catalogoPersona = new CatalogoPersonas();
-        CatalogoPermisos catalogoPermisos = new CatalogoPermisos();
+        CatalogoPersonas catalogoPersona = CatalogoPersonas.Instancia;
+        CatalogoPermisos catalogoPermisos = CatalogoPermisos.Instancia;
 
         public List<Persona> getPersonas()
         {

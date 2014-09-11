@@ -10,7 +10,23 @@ namespace CapaDeDatos
 {
     public class CatalogoPermisos
     {
-        string connectionString = ConnectionString.connectionString;
+
+        private static CatalogoPermisos instancia;
+
+        public static CatalogoPermisos Instancia
+        {
+            get
+            {
+                if (instancia == null)
+                {
+
+                    instancia = new CatalogoPermisos();
+                }
+                return instancia;
+            }
+        }
+
+
 
         SqlConnection myCon;
         SqlDataAdapter adapter;
@@ -18,7 +34,7 @@ namespace CapaDeDatos
 
         public CatalogoPermisos()
         {
-            myCon = new SqlConnection(connectionString);
+            myCon = ConnectionString.Conexion;
         }
 
 

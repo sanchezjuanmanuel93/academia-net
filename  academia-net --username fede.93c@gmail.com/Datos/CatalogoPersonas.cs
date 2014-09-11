@@ -10,15 +10,32 @@ namespace CapaDeDatos
 {
     public class CatalogoPersonas
     {
-        string connectionString = ConnectionString.connectionString;
-        
+
+
+        private static CatalogoPersonas instancia;
+
+        public static CatalogoPersonas Instancia
+        {
+            get
+            {
+                if (instancia == null)
+                {
+
+                    instancia = new CatalogoPersonas();
+                }
+                return instancia;
+            }
+        }
+
+
+
         SqlConnection myCon;
         SqlDataAdapter adapter;
         DataTable dTable;
 
         public CatalogoPersonas()
         {
-            myCon = new SqlConnection(connectionString);
+            myCon = ConnectionString.Conexion;
         }
 
         public Persona getPersona(string usuario, string contraseña)

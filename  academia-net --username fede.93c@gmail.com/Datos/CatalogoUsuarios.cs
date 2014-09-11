@@ -10,7 +10,27 @@ namespace CapaDeDatos
 {
     public class CatalogoUsuarios
     {
-        string connectionString = ConnectionString.connectionString;
+
+
+        private static CatalogoUsuarios instancia;
+
+        public static CatalogoUsuarios Instancia
+        {
+            get
+            {
+                if (instancia == null)
+                {
+
+                    instancia = new CatalogoUsuarios();
+                }
+                return instancia;
+            }
+        }
+
+
+
+
+
 
         SqlConnection myCon;
         SqlDataAdapter adapter;
@@ -18,7 +38,7 @@ namespace CapaDeDatos
 
         public CatalogoUsuarios()
         {
-            myCon = new SqlConnection(connectionString);
+            myCon = ConnectionString.Conexion;
         }
 
 

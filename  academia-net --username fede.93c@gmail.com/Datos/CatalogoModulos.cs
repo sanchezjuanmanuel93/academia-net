@@ -11,7 +11,23 @@ namespace CapaDeDatos
 {
     public class CatalogoModulos
     {
-        string connectionString = ConnectionString.connectionString;
+
+
+        private static CatalogoModulos instancia;
+
+        public static CatalogoModulos Instancia
+        {
+            get
+            {
+                if (instancia == null)
+                {
+
+                    instancia = new CatalogoModulos();
+                }
+                return instancia;
+            }
+        }
+
 
         SqlConnection myCon;
         SqlDataAdapter adapter;
@@ -19,7 +35,7 @@ namespace CapaDeDatos
 
         public CatalogoModulos()
         {
-            myCon = new SqlConnection(connectionString);
+            myCon = ConnectionString.Conexion;
         }
 
         public int getNroModulo(string modulo)

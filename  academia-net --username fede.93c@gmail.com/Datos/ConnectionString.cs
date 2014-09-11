@@ -2,16 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace CapaDeDatos
 {
     public class ConnectionString
     {
-        public static string connectionString
+
+        private static SqlConnection conexion;
+
+        public static SqlConnection Conexion
         {
             get
             {
-                return "Data Source=FEDEE-PC\\SQLSERVER08R2;Initial Catalog=Academia;Integrated Security=True";
+                if (conexion == null)
+                {
+                    conexion = new SqlConnection("Data Source=190.244.225.191,1433\\SQLSERVER08R2;Initial Catalog=Academia;User ID=sa;Password=123"); 
+                }
+                return conexion;
             }
         }
     }

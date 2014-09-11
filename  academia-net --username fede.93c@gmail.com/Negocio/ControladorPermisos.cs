@@ -9,16 +9,11 @@ namespace Negocio
 {
     public class ControladorPermisos
     {
-        CatalogoPermisos catalogoPermisos;
-        CatalogoUsuarios catalogoUsuarios;
-        CatalogoModulos catalogoModulos;
+        CatalogoPermisos catalogoPermisos = CatalogoPermisos.Instancia;
+        CatalogoUsuarios catalogoUsuarios = CatalogoUsuarios.Instancia;
+        CatalogoModulos catalogoModulos = CatalogoModulos.Instancia; 
 
-        public ControladorPermisos()
-        {
-            catalogoPermisos = new CatalogoPermisos();
-            catalogoUsuarios = new CatalogoUsuarios();
-            catalogoModulos = new CatalogoModulos(); 
-        }
+
         public Permiso[] getUsuariosyPermisos()
         {         
             Permiso[] permisos = catalogoPermisos.getPermisos();
