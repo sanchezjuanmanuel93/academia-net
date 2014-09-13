@@ -132,7 +132,7 @@ namespace Presentacion
 
         private void mnuMaterias_Click(object sender, EventArgs e)
         {
-            frmMaterias frmMaterias = new frmMaterias();
+            frmMaterias frmMaterias = new frmMaterias(persona);
             frmMaterias.MdiParent = this;
             frmMaterias.Show();
         }

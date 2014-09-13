@@ -166,5 +166,25 @@ namespace CapaDeDatos
             }
             return false;
         }
+
+
+        public void actualizarPersonas(Persona persona)
+        {
+            string actualizaString;
+            actualizaString = "UPDATE Persona SET ";
+            actualizaString += "Telefono=@Telefono, ";
+            actualizaString += "Nombre=@Nombre, Apellido=@Apellido, Email=@Email ";
+            actualizaString += "WHERE Legajo=@Legajo";
+            SqlCommand cmd = new SqlCommand(actualizaString, myCon);
+            cmd.Parameters.AddWithValue("@Legajo", persona.Legajo);
+            cmd.Parameters.AddWithValue("@Telefono", persona.Telefono);
+            cmd.Parameters.AddWithValue("@Nombre", persona.Nombre);
+            cmd.Parameters.AddWithValue("@Apellido", persona.Apellido);
+            cmd.Parameters.AddWithValue("@Email", persona.Email);
+            myCon.Open();
+            cmd.ExecuteNonQuery();
+            myCon.Close();
+        }
+
     }
 }

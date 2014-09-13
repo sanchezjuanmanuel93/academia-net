@@ -13,22 +13,27 @@ namespace Presentacion
 {
     public partial class frmMaterias : Form
     {
-        public frmMaterias()
+        public frmMaterias(Persona p)
         {
             InitializeComponent();
+            persona = p;
         }
+
+        Persona persona;
 
         ControladorMaterias controladorMaterias = new ControladorMaterias();
 
         private void frmMaterias_Load(object sender, EventArgs e)
         {
             consulta();
+            chequearPermisos();
         }
+
+
 
         void consulta()
         {
-            dgvMaterias.DataSource = controladorMaterias.getMaterias();
-            dgvMaterias.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            llenarGrilla();
         }
 
         private void btnAlta_Click(object sender, EventArgs e)
@@ -36,6 +41,34 @@ namespace Presentacion
             frmAltaMateria frmAltaMateria = new frmAltaMateria();
             frmAltaMateria.ShowDialog();
             consulta();
+
+        }
+
+        private void btnBaja_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewCell cell in dgvMaterias.SelectedCells)
+            {
+                DataGridViewRow dgvRow = cell.OwningRow;
+                controladorMaterias.eliminarMateria(dgvRow.Cells["Nombre"].Value.ToString());
+            }
+            llenarGrilla();
+        }
+
+        void chequearPermisos()
+        {
+            btnAlta.Visible = controladorMaterias.getPermiso(persona.Usuario, "alta");
+            btnBaja.Visible = controladorMaterias.getPermiso(persona.Usuario, "baja");
+            btnModifica.Visible = controladorMaterias.getPermiso(persona.Usuario, "modifica");
+        }
+
+        void llenarGrilla()
+        {
+            dgvMaterias.DataSource = controladorMaterias.getMaterias();
+            dgvMaterias.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void btnModifica_Click(object sender, EventArgs e)
+        {
 
         }
     }
