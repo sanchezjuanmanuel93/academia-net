@@ -79,5 +79,23 @@ namespace CapaDeDatos
             return false;
         }
 
+        public bool eliminarMateria(string nombre)
+        {
+            int ok;
+            string querry = "delete from Materia where Materia.Descripcion = " + nombre;
+
+            SqlCommand cmd = new SqlCommand(querry, myCon);
+            cmd.CommandType = CommandType.Text;
+            myCon.Open();
+            ok = cmd.ExecuteNonQuery();
+            myCon.Close();
+
+            if (ok > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
     }
 }

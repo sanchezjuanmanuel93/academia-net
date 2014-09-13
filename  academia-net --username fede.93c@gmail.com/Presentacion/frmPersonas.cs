@@ -21,11 +21,13 @@ namespace Presentacion
 
         ControladorPersonas controladorPersonas = new ControladorPersonas();
         Persona persona;
+        bool cambios = false;
 
         private void frmPersonas_Load(object sender, EventArgs e)
         {
             llenarGrilla();
             chequearPermisos();
+            dgvPersonas.Columns["Legajo"].ReadOnly = true;
         }
 
         void chequearPermisos()
@@ -60,9 +62,46 @@ namespace Presentacion
             llenarGrilla();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+
+
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            controladorPersonas.actualizarPersona((List<Persona>)dgvPersonas.DataSource);
+            cambios = false;
+        }
+
+        private void frmPersonas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (cambios)
+            {
+                switch (MessageBox.Show("Desea guardar los cambios?", "Atento!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question))
+                {
+
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                    case DialogResult.No:
+                        break;
+                    case DialogResult.Yes:
+                        guardar();
+                        break;
+                    default:
+                        break;
+                }
+            }       
+        }
+
+        void guardar()
+        {
+            controladorPersonas.actualizarPersona((List<Persona>)dgvPersonas.DataSource);
+            MessageBox.Show("Guardado exitosamente.", "Sistema Academia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            llenarGrilla();
+            chequearPermisos();
+        }
+
+        private void dgvPersonas_Click(object sender, EventArgs e)
+        {
+            cambios = true;
         }
     }
 }

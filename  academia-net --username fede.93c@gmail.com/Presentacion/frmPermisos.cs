@@ -70,7 +70,7 @@ namespace Presentacion
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             guardar();
-
+            cambios = false;
         }
 
         void guardar()
@@ -124,12 +124,17 @@ namespace Presentacion
 
         private void dgvPermisos_Click(object sender, EventArgs e)
         {
-            cambios = true;
+
         }
 
         private void frmPermisos_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvPermisos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            cambios = true;
         }
 
     }

@@ -34,6 +34,14 @@ namespace Negocio
         }
 
 
+        public void actualizarPersona(List<Persona> personas)
+        {
+            foreach (Persona persona in personas)
+            {
+                 catalogoPersona.actualizarPersonas(persona);     
+            }
+        }
+
         public bool getPermiso(string usuario, string boton)
         {
             Permiso[] permisos = catalogoPermisos.getPermisos();
@@ -41,7 +49,7 @@ namespace Negocio
             {
                 if (permiso != null)
                 {
-                    if ((permiso.Usuario == usuario) && (permiso.Modulo == "Personas"))
+                    if ((permiso.Usuario == usuario) && (permiso.Modulo == "Materias"))
                     {
                         switch (boton)
                         {

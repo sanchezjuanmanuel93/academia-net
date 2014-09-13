@@ -49,6 +49,7 @@
             this.dgvPermisos.Size = new System.Drawing.Size(664, 301);
             this.dgvPermisos.TabIndex = 0;
             this.dgvPermisos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermisos_CellContentClick);
+            this.dgvPermisos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermisos_CellValueChanged);
             this.dgvPermisos.Click += new System.EventHandler(this.dgvPermisos_Click);
             // 
             // tableLayoutPanel1

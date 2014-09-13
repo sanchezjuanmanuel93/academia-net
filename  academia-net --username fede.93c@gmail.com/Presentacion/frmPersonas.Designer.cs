@@ -32,7 +32,6 @@
             this.btnAlta = new System.Windows.Forms.Button();
             this.btnBaja = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvPersonas = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).BeginInit();
@@ -40,15 +39,13 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Controls.Add(this.btnAlta, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnBaja, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnGuardar, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 306);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -59,9 +56,10 @@
             // 
             // btnAlta
             // 
+            this.btnAlta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAlta.Location = new System.Drawing.Point(3, 3);
             this.btnAlta.Name = "btnAlta";
-            this.btnAlta.Size = new System.Drawing.Size(135, 61);
+            this.btnAlta.Size = new System.Drawing.Size(182, 61);
             this.btnAlta.TabIndex = 1;
             this.btnAlta.Text = "Alta";
             this.btnAlta.UseVisualStyleBackColor = true;
@@ -69,9 +67,10 @@
             // 
             // btnBaja
             // 
-            this.btnBaja.Location = new System.Drawing.Point(144, 3);
+            this.btnBaja.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBaja.Location = new System.Drawing.Point(191, 3);
             this.btnBaja.Name = "btnBaja";
-            this.btnBaja.Size = new System.Drawing.Size(135, 61);
+            this.btnBaja.Size = new System.Drawing.Size(182, 61);
             this.btnBaja.TabIndex = 2;
             this.btnBaja.Text = "Baja";
             this.btnBaja.UseVisualStyleBackColor = true;
@@ -79,22 +78,14 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(285, 3);
+            this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGuardar.Location = new System.Drawing.Point(379, 3);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(135, 61);
+            this.btnGuardar.Size = new System.Drawing.Size(182, 61);
             this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(426, 3);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(135, 61);
-            this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // dgvPersonas
             // 
@@ -106,6 +97,7 @@
             this.dgvPersonas.Name = "dgvPersonas";
             this.dgvPersonas.Size = new System.Drawing.Size(564, 301);
             this.dgvPersonas.TabIndex = 2;
+            this.dgvPersonas.Click += new System.EventHandler(this.dgvPersonas_Click);
             // 
             // frmPersonas
             // 
@@ -117,6 +109,7 @@
             this.Name = "frmPersonas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Personas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPersonas_FormClosing);
             this.Load += new System.EventHandler(this.frmPersonas_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).EndInit();
@@ -130,7 +123,6 @@
         private System.Windows.Forms.Button btnAlta;
         private System.Windows.Forms.Button btnBaja;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvPersonas;
     }
 }

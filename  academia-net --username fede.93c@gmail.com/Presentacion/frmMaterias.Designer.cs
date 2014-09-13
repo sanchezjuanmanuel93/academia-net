@@ -61,8 +61,9 @@
             this.btnModifica.Name = "btnModifica";
             this.btnModifica.Size = new System.Drawing.Size(169, 59);
             this.btnModifica.TabIndex = 4;
-            this.btnModifica.Text = "Modifica";
+            this.btnModifica.Text = "Guardar";
             this.btnModifica.UseVisualStyleBackColor = true;
+            this.btnModifica.Click += new System.EventHandler(this.btnModifica_Click);
             // 
             // btnBaja
             // 
@@ -73,6 +74,7 @@
             this.btnBaja.TabIndex = 3;
             this.btnBaja.Text = "Baja";
             this.btnBaja.UseVisualStyleBackColor = true;
+            this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
             // 
             // btnAlta
             // 
