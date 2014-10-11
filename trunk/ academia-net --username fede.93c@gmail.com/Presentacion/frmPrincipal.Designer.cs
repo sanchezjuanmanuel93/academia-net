@@ -37,10 +37,7 @@
             this.mnuPermisos = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPersonas = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMaterias = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuComisiones = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuInscripciones = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuEspecialidades = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuPlanes = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,10 +49,7 @@
             this.mnuPermisos,
             this.mnuPersonas,
             this.mnuMaterias,
-            this.mnuComisiones,
-            this.mnuInscripciones,
-            this.mnuEspecialidades,
-            this.mnuPlanes});
+            this.mnuInscripciones});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
             this.mnuPrincipal.Size = new System.Drawing.Size(784, 24);
@@ -77,21 +71,21 @@
             this.mnuIngresar.Name = "mnuIngresar";
             this.mnuIngresar.ShortcutKeyDisplayString = "F2";
             this.mnuIngresar.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.mnuIngresar.Size = new System.Drawing.Size(142, 22);
+            this.mnuIngresar.Size = new System.Drawing.Size(152, 22);
             this.mnuIngresar.Text = "Ingresar";
             this.mnuIngresar.Click += new System.EventHandler(this.mnuIngresar_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(139, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuSalir
             // 
             this.mnuSalir.Name = "mnuSalir";
             this.mnuSalir.ShortcutKeyDisplayString = "Ctrl + S";
             this.mnuSalir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mnuSalir.Size = new System.Drawing.Size(142, 22);
+            this.mnuSalir.Size = new System.Drawing.Size(152, 22);
             this.mnuSalir.Text = "Salir";
             this.mnuSalir.Click += new System.EventHandler(this.mnuSalir_Click);
             // 
@@ -123,12 +117,6 @@
             this.mnuMaterias.Text = "Materias";
             this.mnuMaterias.Click += new System.EventHandler(this.mnuMaterias_Click);
             // 
-            // mnuComisiones
-            // 
-            this.mnuComisiones.Name = "mnuComisiones";
-            this.mnuComisiones.Size = new System.Drawing.Size(81, 20);
-            this.mnuComisiones.Text = "Comisiones";
-            // 
             // mnuInscripciones
             // 
             this.mnuInscripciones.AccessibleDescription = "Personas_Materias";
@@ -137,24 +125,13 @@
             this.mnuInscripciones.Text = "Inscripciones";
             this.mnuInscripciones.Click += new System.EventHandler(this.mnuInscripciones_Click);
             // 
-            // mnuEspecialidades
-            // 
-            this.mnuEspecialidades.Name = "mnuEspecialidades";
-            this.mnuEspecialidades.Size = new System.Drawing.Size(95, 20);
-            this.mnuEspecialidades.Text = "Especialidades";
-            // 
-            // mnuPlanes
-            // 
-            this.mnuPlanes.Name = "mnuPlanes";
-            this.mnuPlanes.Size = new System.Drawing.Size(53, 20);
-            this.mnuPlanes.Text = "Planes";
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 398);
             this.Controls.Add(this.mnuPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.mnuPrincipal;
             this.Name = "frmPrincipal";
             this.Text = "Sistema Academia";
@@ -178,9 +155,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuUsuarios;
         private System.Windows.Forms.ToolStripMenuItem mnuPersonas;
         private System.Windows.Forms.ToolStripMenuItem mnuMaterias;
-        private System.Windows.Forms.ToolStripMenuItem mnuComisiones;
-        private System.Windows.Forms.ToolStripMenuItem mnuEspecialidades;
-        private System.Windows.Forms.ToolStripMenuItem mnuPlanes;
         private System.Windows.Forms.ToolStripMenuItem mnuInscripciones;
     }
 }

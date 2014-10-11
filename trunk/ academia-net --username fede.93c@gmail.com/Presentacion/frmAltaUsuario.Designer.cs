@@ -155,6 +155,7 @@
             this.Name = "frmAltaUsuario";
             this.Text = "Nuevo Usuario";
             this.Load += new System.EventHandler(this.frmAltaUsuario_Load);
+            this.Shown += new System.EventHandler(this.frmAltaUsuario_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

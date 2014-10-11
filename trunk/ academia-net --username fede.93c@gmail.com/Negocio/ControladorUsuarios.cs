@@ -26,12 +26,30 @@ namespace Negocio
             return catalogoUsuarios.eliminarUsuario(usuario);
         }
 
-        public List<Persona> getPersonas()
+        public List<Persona> getPersonasSinUsu()
         {
-            List<Persona> personas = new List<Persona>();
+            List<Persona> personas;
 
             personas = catalogoPersonas.getPersonasSinUsuario();
+            if (personas == null)
+            {
+                personas = new List<Persona>();   
+            }
+            Persona p = new Persona();
+            p.Apellido = "Nueva..";
+            personas.Add(p);
+            return personas;
+        }
 
+        public List<Persona> getPersonas()
+        {
+            List<Persona> personas;
+
+            personas = catalogoPersonas.getPersonas();
+            if (personas == null)
+            {
+                personas = new List<Persona>();
+            }
             return personas;
         }
 
@@ -39,6 +57,8 @@ namespace Negocio
         {
             return catalogoUsuarios.agregaUsuario(int.Parse(persona.Legajo), usuario, clave); ;
         }
+
+
 
         public bool getPermiso(string usuario, string boton)
         {
@@ -76,6 +96,19 @@ namespace Negocio
                 }
             }
             return false;
+        }
+
+        public void actualizaUsuario(List<Usuario> usuarios)
+        {
+            foreach (Usuario usuario in usuarios)
+            {
+                catalogoUsuarios.actualizarUsuarios(usuario);
+            }
+        }
+
+        public bool actualizaUsuario(Usuario usuario)
+        {
+           return catalogoUsuarios.actualizarUsuarios(usuario);
         }
     }
 }

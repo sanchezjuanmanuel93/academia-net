@@ -44,6 +44,14 @@ namespace Presentacion
 
         }
 
+        void guardar()
+        {
+            controladorMaterias.actualizaMateria((List<Materias>)(dgvMaterias.DataSource));
+            MessageBox.Show("Guardado exitosamente.", "Sistema Academia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            llenarGrilla();
+            chequearPermisos();
+        }
+
         private void btnBaja_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewCell cell in dgvMaterias.SelectedCells)
@@ -69,7 +77,7 @@ namespace Presentacion
 
         private void btnModifica_Click(object sender, EventArgs e)
         {
-
+            guardar();
         }
     }
 }

@@ -62,5 +62,19 @@ namespace Presentacion
             frmAltaUsuario.ShowDialog();
             llenarGrilla();
         }
+
+        private void btnModifica_Click(object sender, EventArgs e)
+        {
+            //controladorUsuarios.actualizaUsuario((List<Usuario>)(dgvUsuarios.DataSource));
+
+            foreach (DataGridViewCell cell in dgvUsuarios.SelectedCells)
+            {
+                frmAltaUsuario frm = new frmAltaUsuario();
+                frm.Show();
+                DataGridViewRow fila = cell.OwningRow;
+                frm.modificar(fila.Cells["Legajo"].Value.ToString(), fila.Cells["Clave"].Value.ToString(), fila.Cells["Usu"].Value.ToString());
+            }
+
+        }
     }
 }

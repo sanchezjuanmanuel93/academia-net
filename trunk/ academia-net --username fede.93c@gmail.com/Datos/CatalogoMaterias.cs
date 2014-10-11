@@ -60,6 +60,28 @@ namespace CapaDeDatos
 
         }
 
+        public List<Materias> getMateriasSinInscripcion(string legajo)
+        {
+            List<Materias> materias = new List<Materias>();
+            dTable = new DataTable("Materias");
+            myCon.Open();
+            adapter = new SqlDataAdapter("SELECT * FROM Materia m where m.Id_mat NOT IN ( select pm.Id_mat from Personas_Materias pm where pm.Legajo ='" + legajo+"')", myCon);
+            adapter.Fill(dTable);
+            myCon.Close();
+
+            foreach (DataRow row in dTable.Rows)
+            {
+
+                Materias materia = new Materias();
+                materia.nroMateria = (int)row["id_mat"];
+                materia.Nombre = row["descripcion"].ToString();
+                materias.Add(materia);
+            }
+
+            return materias;
+
+        }
+
         public bool agregarMateria(string numero, string nombre)
         {
             int ok;
@@ -96,6 +118,17 @@ namespace CapaDeDatos
             }
             return false;
         }
+
+        public void actualizarMaterias(Materias materia)
+        {
+            string actualizaString;
+            actualizaString = "UPDATE Materia SET Descripcion= '" + materia.Nombre + "' where Id_mat=" + materia.nroMateria;
+            SqlCommand cmd = new SqlCommand(actualizaString, myCon);
+            myCon.Open();
+            cmd.ExecuteNonQuery();
+            myCon.Close();
+        }
+
 
     }
 }

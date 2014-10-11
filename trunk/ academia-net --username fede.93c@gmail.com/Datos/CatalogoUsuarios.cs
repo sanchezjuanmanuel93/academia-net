@@ -102,5 +102,22 @@ namespace CapaDeDatos
             return false;
         }
 
+        public bool actualizarUsuarios(Usuario usuario)
+        {
+            int ok = -1;
+            string actualizaString;
+            actualizaString = "UPDATE Usuario SET Clave= '" + usuario.Clave + "', Legajo= '" + usuario.Legajo + "' where Usu='" + usuario.Usu+"'";
+            SqlCommand cmd = new SqlCommand(actualizaString, myCon);
+            myCon.Open();
+            ok = cmd.ExecuteNonQuery();
+            myCon.Close();
+
+            if (ok > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
     }
 }
