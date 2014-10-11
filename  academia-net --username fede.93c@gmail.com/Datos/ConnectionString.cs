@@ -18,7 +18,7 @@ namespace CapaDeDatos
             {
                 if (conexion == null)
                 {
-                    conexion = new SqlConnection("Data Source=190.244.225.191,1433\\SQLSERVER08R2;Initial Catalog=Academia;User ID=sa;Password=123"); 
+                    conexion = new SqlConnection(@"Data Source=FEDEE\SQLSERVER;Initial Catalog=Academia;Integrated Security=true"); 
                 }
                 return conexion;
             }

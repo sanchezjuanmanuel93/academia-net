@@ -28,7 +28,10 @@ namespace Presentacion
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (controladorPersonas.agregarPersona(txtLegajo.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtEmail.Text, ((TipoPersona)cmbTipo.SelectedItem).tipo))
+            {
                 MessageBox.Show("Agregada");
+                this.Close();
+            }
             else
                 MessageBox.Show("Persona existente o campos incorrectos");
         }

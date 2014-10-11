@@ -48,15 +48,11 @@ namespace Presentacion
                     return false;
                 }
             }
-
             
         mnuPersonas.Visible
         = mnuMaterias.Visible 
         = mnuPermisos.Visible
         = mnuUsuarios.Visible 
-        = mnuComisiones.Visible
-        = mnuEspecialidades.Visible 
-        = mnuPlanes.Visible
         = mnuInscripciones.Visible = false;
 
 
@@ -93,6 +89,7 @@ namespace Presentacion
                 }
 
             }
+
  
 	
           
@@ -139,7 +136,7 @@ namespace Presentacion
 
         private void mnuInscripciones_Click(object sender, EventArgs e)
         {
-            frmInscripciones frmInscripciones = new frmInscripciones();
+            frmInscripciones frmInscripciones = new frmInscripciones(persona);
             frmInscripciones.MdiParent = this;
             frmInscripciones.Show();
         }

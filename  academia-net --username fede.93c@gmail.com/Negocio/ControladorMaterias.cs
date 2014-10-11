@@ -65,5 +65,15 @@ namespace Negocio
             }
             return false;
         }
+
+        public void actualizaMateria(List<Materias> materias)
+        {
+            foreach (Materias materia in materias)
+            {
+                catalogoMaterias.actualizarMaterias(materia);
+            }
+        }
     }
+
+
 }

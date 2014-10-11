@@ -20,7 +20,13 @@ namespace Entidades
 
         public string Mostrar 
         { get
-            { return Apellido + ", " + Nombre; }
+        {
+            if (Apellido == "Nueva..")
+            {
+                return Apellido;
+            }
+            return Apellido + ", " + Nombre;
+        }
         }
 
         //public string cadena
