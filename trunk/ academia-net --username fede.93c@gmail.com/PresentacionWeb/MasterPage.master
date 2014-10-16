@@ -1,0 +1,97 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 177px;
+        }
+        .auto-style2 {
+            width: 177px;
+            height: 23px;
+        }
+        .auto-style3 {
+            height: 23px;
+        }
+        .auto-style4 {
+            width: 126px;
+            height: 23px;
+        }
+        .auto-style5 {
+            width: 126px;
+        }
+        .auto-style6 {
+            width: 177px;
+            height: 25px;
+        }
+        .auto-style7 {
+            height: 25px;
+        }
+        .auto-style8 {
+            width: 126px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body style="margin-top: 16px">
+    <form id="form1" runat="server">
+    <div>
+        <table style="width: 100%; margin-right: 234px;">
+            <tr>
+                <td class="auto-style2" style="background-color: #B6CF48; font-family: Arial, Helvetica, sans-serif; font-size: xx-large; font-weight: bold; color: #FFFFFF">&nbsp;</td>
+                <td class="auto-style3" style="background-color: #B6CF48; font-family: Arial, Helvetica, sans-serif; font-size: 50px; font-weight: bold; color: #FFFFFF">Bienvenido al sistema Academia</td>
+                <td class="auto-style4" style="background-color: #B6CF48; font-family: Arial, Helvetica, sans-serif; font-size: 50px; font-weight: bold; color: #FFFFFF">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style1" style="background-color: #004f67; color: #FFFFFF; font-size: large; font-weight: bold; font-family: Arial, Helvetica, sans-serif; text-decoration: underline;">Trabao practico 2</td>
+                <td style="background-color: #004f67; color: #FFFFFF; font-size: large; font-weight: bold; font-family: Arial, Helvetica, sans-serif; text-decoration: underline;">
+                    <asp:Menu ID="Menu1" runat="server" Font-Size="20pt" ForeColor="White" Orientation="Horizontal" StaticSubMenuIndent="16px" OnMenuItemClick="Menu1_MenuItemClick">
+                        <Items>
+                            <asp:MenuItem Text="Inicio" ToolTip="Va al inicio" Value="Inicio"></asp:MenuItem>
+                            <asp:MenuItem Text="| Inscripciones" Value="Inscripciones"></asp:MenuItem>
+                            <asp:MenuItem Text="| Usuarios" Value="Usuarios"></asp:MenuItem>
+                            <asp:MenuItem Text="| Personas" Value="Personas"></asp:MenuItem>
+                            <asp:MenuItem Text="| Permisos" Value="Permisos"></asp:MenuItem>
+                            <asp:MenuItem Text="| Materias" Value="Materias"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </td>
+                <td style="background-color: #004f67; color: #FFFFFF; font-size: large; font-weight: bold; font-family: Arial, Helvetica, sans-serif; text-decoration: underline;" class="auto-style5">
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <asp:LinkButton ID="lnkIniciarSesion" runat="server" ForeColor="White" OnClick="lnkIniciarSesion_Click">Iniciar sesion</asp:LinkButton>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:LinkButton ID="lnkCerrarSesion" runat="server" ForeColor="White" OnClick="lnkCerrarSesion_Click">Cerrar sesion</asp:LinkButton>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style6" style="background-color: #004f67; color: #FFFFFF; font-size: large; font-weight: bold; font-family: Arial, Helvetica, sans-serif; text-decoration: underline;">Calvagna, Federico<br />
+                    <br />
+                    Selva, Ignacio<br />
+                    <br />
+                    Sanchez, Juan Manuel</td>
+                <td class="auto-style7">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+                <td class="auto-style8">
+                    </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
