@@ -61,5 +61,10 @@ namespace Presentacion
         {
 
         }
+
+        private void dgvInscripciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

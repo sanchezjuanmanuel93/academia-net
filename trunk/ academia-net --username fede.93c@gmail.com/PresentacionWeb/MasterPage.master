@@ -42,7 +42,7 @@
 <body style="margin-top: 16px">
     <form id="form1" runat="server">
     <div>
-        <table style="width: 100%; margin-right: 234px;">
+        <table style="width: 100%; margin-right: 234px; height: 100%;">
             <tr>
                 <td class="auto-style2" style="background-color: #B6CF48; font-family: Arial, Helvetica, sans-serif; font-size: xx-large; font-weight: bold; color: #FFFFFF">&nbsp;</td>
                 <td class="auto-style3" style="background-color: #B6CF48; font-family: Arial, Helvetica, sans-serif; font-size: 50px; font-weight: bold; color: #FFFFFF">Bienvenido al sistema Academia</td>
