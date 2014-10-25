@@ -14,6 +14,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PresentacionWeb", "http://l
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.1"
+		ProjectReferences = "{0d0229d7-98c6-457d-bbf3-ff39e760411e}|Negocio.dll;{2B4B8C9E-34FE-4248-B8DF-718668EF069B}|Datos.dll;{67F02176-70E5-482A-9F8E-9644D4C6581E}|Entidades.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_22029"
 		Debug.AspNetCompiler.PhysicalPath = "PresentacionWeb\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_22029\"

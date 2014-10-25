@@ -11,18 +11,18 @@ namespace Negocio
     {
         CatalogoInscripciones catalogoInscrpciones = CatalogoInscripciones.Instancia;
         CatalogoMaterias catalogoMateria = CatalogoMaterias.Instancia;
-
+        List<Inscripciones> Inscripciones;
         public List<Inscripciones> getInscripciones(string legajo)
         {
             if (legajo == "0")
             {
-                return catalogoInscrpciones.getInscripciones();
+                Inscripciones = catalogoInscrpciones.getInscripciones();
             }
             else
             {
-                return catalogoInscrpciones.getInscripciones(legajo);
+                Inscripciones = catalogoInscrpciones.getInscripciones(legajo);
             }
-
+            return Inscripciones;
         }
 
         public List<Materias> getMateriasSinInscripcion(string legajo)
@@ -34,6 +34,12 @@ namespace Negocio
         {
             return catalogoInscrpciones.eliminarInscripcion(legajo, idMateria);
         }
+
+        public bool eliminarInscripcion(int Index)
+        {
+            return catalogoInscrpciones.eliminarInscripcion(Inscripciones[Index].Legajo.ToString(),Inscripciones[Index].nroMateria.ToString());
+        }
+
 
         public bool agregarInscripcion(string legajo, string idMateria, DateTime fecha)
         {

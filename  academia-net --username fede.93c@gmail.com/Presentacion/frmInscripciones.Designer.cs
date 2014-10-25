@@ -81,6 +81,7 @@
             this.dgvInscripciones.Name = "dgvInscripciones";
             this.dgvInscripciones.Size = new System.Drawing.Size(496, 262);
             this.dgvInscripciones.TabIndex = 2;
+            this.dgvInscripciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInscripciones_CellContentClick);
             // 
             // frmInscripciones
             // 

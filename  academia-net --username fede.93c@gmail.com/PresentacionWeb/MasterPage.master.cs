@@ -73,9 +73,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
             case "Inscripciones":
                 Response.Redirect("~/frmInscripciones.aspx");
                 break;
-            //case "Inicio":
-            //    Response.Redirect("~/frmPrincipal.aspx");
-            //    break;
+            case "Permisos":
+                Response.Redirect("~/frmPermisos.aspx");
+                break;
             //case "Inicio":
             //    Response.Redirect("~/frmPrincipal.aspx");
             //    break;
