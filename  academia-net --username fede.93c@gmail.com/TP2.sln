@@ -1,7 +1,5 @@
-Microsoft Visual Studio Solution File, Format Version 10.00
+Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-VisualStudioVersion = 10.0.30723.0
-MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentacionEscritorio", "Presentacion\PresentacionEscritorio.csproj", "{2E49FC85-BF26-4EC3-A42B-19A0DA48E474}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{0D0229D7-98C6-457D-BBF3-FF39E760411E}"
@@ -10,26 +8,24 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Enti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{2B4B8C9E-34FE-4248-B8DF-718668EF069B}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PresentacionWeb", "http://localhost:22029", "{2D02F1ED-A965-4CD2-BA30-DD9D470AB55D}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PresentacionWeb", "PresentacionWeb\", "{BF6DBB74-E840-446C-A50C-182A4E9C5D9D}"
 	ProjectSection(WebsiteProperties) = preProject
-		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.1"
-		ProjectReferences = "{0d0229d7-98c6-457d-bbf3-ff39e760411e}|Negocio.dll;{2B4B8C9E-34FE-4248-B8DF-718668EF069B}|Datos.dll;{67F02176-70E5-482A-9F8E-9644D4C6581E}|Entidades.dll;"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_22029"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/PresentacionWeb"
 		Debug.AspNetCompiler.PhysicalPath = "PresentacionWeb\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_22029\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\PresentacionWeb\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_22029"
+		Release.AspNetCompiler.VirtualPath = "/PresentacionWeb"
 		Release.AspNetCompiler.PhysicalPath = "PresentacionWeb\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_22029\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\PresentacionWeb\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "PresentacionWeb\"
+		VWDPort = "1951"
 	EndProjectSection
 EndProject
 Global
@@ -54,10 +50,10 @@ Global
 		{2B4B8C9E-34FE-4248-B8DF-718668EF069B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B4B8C9E-34FE-4248-B8DF-718668EF069B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B4B8C9E-34FE-4248-B8DF-718668EF069B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D02F1ED-A965-4CD2-BA30-DD9D470AB55D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D02F1ED-A965-4CD2-BA30-DD9D470AB55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D02F1ED-A965-4CD2-BA30-DD9D470AB55D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D02F1ED-A965-4CD2-BA30-DD9D470AB55D}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{BF6DBB74-E840-446C-A50C-182A4E9C5D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF6DBB74-E840-446C-A50C-182A4E9C5D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF6DBB74-E840-446C-A50C-182A4E9C5D9D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF6DBB74-E840-446C-A50C-182A4E9C5D9D}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
