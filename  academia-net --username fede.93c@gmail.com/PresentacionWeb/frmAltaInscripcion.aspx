@@ -25,7 +25,7 @@
             <td>
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="140px" OnClick="btnGuardar_Click" />
             </td>
-        </tr>
+        </tr>        
     </table>
 </asp:Content>
 

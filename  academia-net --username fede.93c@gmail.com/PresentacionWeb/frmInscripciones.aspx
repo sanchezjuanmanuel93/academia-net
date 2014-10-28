@@ -15,7 +15,14 @@
     <table style="height: 175px;">
         <tr>
             <td>
-                <asp:GridView ID="dgvInscripciones" runat="server" AutoGenerateColumns="False" Width="689px" OnDataBound="dgvInscripciones_DataBound1" ForeColor="#333333" Font-Bold="True" Font-Size="Large" AutoGenerateSelectButton="True" CellPadding="4" GridLines="None" OnRowCancelingEdit="dgvInscripciones_RowCancelingEdit" OnRowEditing="dgvInscripciones_RowEditing" OnRowUpdating="dgvInscripciones_RowUpdating">
+                <asp:GridView ID="dgvInscripciones" runat="server" AutoGenerateColumns="False" 
+                    Width="689px" OnDataBound="dgvInscripciones_DataBound1" ForeColor="#333333" 
+                    Font-Bold="True" Font-Size="Large" AutoGenerateSelectButton="True" 
+                    CellPadding="4" GridLines="None" 
+                    OnRowCancelingEdit="dgvInscripciones_RowCancelingEdit" 
+                    OnRowEditing="dgvInscripciones_RowEditing" 
+                    OnRowUpdating="dgvInscripciones_RowUpdating" onselectedindexchanged="dgvInscripciones_SelectedIndexChanged" 
+                    >
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField HeaderText="Legao" DataField="Legajo"></asp:BoundField>
@@ -46,6 +53,11 @@
                         </td>
                         <td class="auto-style10">
                             <asp:Button ID="btnBaja" runat="server" Text="Baja" Width="200px" Font-Bold="False" Height="50px" OnClick="btnBaja_Click" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style9">
+                            <asp:Label ID="lblMensaje" runat="server" ForeColor="Red"></asp:Label>
                         </td>
                     </tr>
                 </table>

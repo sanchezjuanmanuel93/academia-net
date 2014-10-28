@@ -57,11 +57,20 @@ public partial class frmInscripciones : System.Web.UI.Page
         if (dgvInscripciones.SelectedIndex >= 0)
         {
             controladorInscripciones.eliminarInscripcion(dgvInscripciones.SelectedIndex);
+            lblMensaje.Text = "Se dió de baja correctamente " + dgvInscripciones.SelectedRow.Cells[3].Text + " " + dgvInscripciones.SelectedRow.Cells[2].Text + " de la materia " + dgvInscripciones.SelectedRow.Cells[4].Text;
             llenarGrilla();
+        }
+        else
+        {
+            lblMensaje.Text = "Se debe seleccionar algun campo";
         }
     }
     protected void btnAlta_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/frmAltaInscripcion.aspx");
+    }
+    protected void dgvInscripciones_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 }
