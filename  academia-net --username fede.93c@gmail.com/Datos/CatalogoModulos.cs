@@ -41,16 +41,24 @@ namespace CapaDeDatos
         public int getNroModulo(string modulo)
         {
             dTable = new DataTable("modulos");
-            myCon.Open();
-            adapter = new SqlDataAdapter("select * from Modulo m where m.Descripcion = '" + modulo + "';", myCon);
-            adapter.Fill(dTable);
-            myCon.Close();
-
-            if (dTable.Rows.Count > 0)
+            try
             {
+                myCon.Open();
+                adapter = new SqlDataAdapter("select * from Modulo m where m.Descripcion = '" + modulo + "';", myCon);
+                adapter.Fill(dTable);
+                if (dTable.Rows.Count > 0)
+                {
                     return (int)dTable.Rows[0]["Id_mod"];
+                }
             }
-
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
+            }
             return -1;
 
         }
@@ -61,41 +69,58 @@ namespace CapaDeDatos
             {
                 return null;
             }
-  Modulo[] modulos;
+            Modulo[] modulos =null;
             dTable = new DataTable("Modulos");
-            myCon.Open();
-            adapter = new SqlDataAdapter("select m.Id_mod, m.Descripcion, u.Usu  from Modulo m inner join Usuario u on 1=1 where u.Usu = '" + usuario + "' EXCEPT select um.Id_mod, m.Descripcion, um.Usu from Usuarios_Modulos um join Modulo m on um.Id_mod = m.Id_mod", myCon);
-            adapter.Fill(dTable);
-            myCon.Close();
-
-            modulos = new Modulo[dTable.Rows.Count];
-
-            for (int i = 0; i < modulos.Length; i++)
+            try
             {
-                modulos[i] = new Modulo();
-                modulos[i].Id_mod = (int)dTable.Rows[i]["Id_mod"];
-                modulos[i].modulo = dTable.Rows[i]["Descripcion"].ToString();
-            }
+                myCon.Open();
+                adapter = new SqlDataAdapter("select m.Id_mod, m.Descripcion, u.Usu  from Modulo m inner join Usuario u on 1=1 where u.Usu = '" + usuario + "' EXCEPT select um.Id_mod, m.Descripcion, um.Usu from Usuarios_Modulos um join Modulo m on um.Id_mod = m.Id_mod", myCon);
+                adapter.Fill(dTable);
+                modulos = new Modulo[dTable.Rows.Count];
 
+                for (int i = 0; i < modulos.Length; i++)
+                {
+                    modulos[i] = new Modulo();
+                    modulos[i].Id_mod = (int)dTable.Rows[i]["Id_mod"];
+                    modulos[i].modulo = dTable.Rows[i]["Descripcion"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
+            }
             return modulos;
         }
 
         public Modulo[] getModulos()
         {
-            Modulo[] modulos;
+            Modulo[] modulos =null;
             dTable = new DataTable("Modulos");
-            myCon.Open();
-            adapter = new SqlDataAdapter("Select * from Modulo", myCon);
-            adapter.Fill(dTable);
-            myCon.Close();
-
-            modulos = new Modulo[dTable.Rows.Count];
-
-            for (int i = 0; i < modulos.Length; i++)
+            try
             {
-                modulos[i] = new Modulo();
-                modulos[i].Id_mod = (int)dTable.Rows[i]["Id_mod"];
-                modulos[i].modulo = dTable.Rows[i]["Descripcion"].ToString();
+                myCon.Open();
+                adapter = new SqlDataAdapter("Select * from Modulo", myCon);
+                adapter.Fill(dTable);
+                modulos = new Modulo[dTable.Rows.Count];
+
+                for (int i = 0; i < modulos.Length; i++)
+                {
+                    modulos[i] = new Modulo();
+                    modulos[i].Id_mod = (int)dTable.Rows[i]["Id_mod"];
+                    modulos[i].modulo = dTable.Rows[i]["Descripcion"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
             }
 
             return modulos;

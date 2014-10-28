@@ -65,14 +65,17 @@ namespace Presentacion
 
         private void btnModifica_Click(object sender, EventArgs e)
         {
-            //controladorUsuarios.actualizaUsuario((List<Usuario>)(dgvUsuarios.DataSource));
-
-            foreach (DataGridViewCell cell in dgvUsuarios.SelectedCells)
+            if (dgvUsuarios.SelectedRows.Count > 0)
             {
+                DataGridViewRow fila = dgvUsuarios.SelectedRows[0];
                 frmAltaUsuario frm = new frmAltaUsuario();
                 frm.Show();
-                DataGridViewRow fila = cell.OwningRow;
                 frm.modificar(fila.Cells["Legajo"].Value.ToString(), fila.Cells["Clave"].Value.ToString(), fila.Cells["Usu"].Value.ToString());
+                llenarGrilla();
+            }
+            else
+            {
+                MessageBox.Show("No se seleccionó ningun usuario");
             }
 
         }

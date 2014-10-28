@@ -42,15 +42,24 @@ namespace CapaDeDatos
         {
             
 
-            int ok;
+            int ok =-1;
             string querry = "DELETE FROM Usuarios_Modulos where Usuarios_Modulos.Usu = '" + usuario + "' and Usuarios_Modulos.Id_mod = " + nroModulo;
 
             SqlCommand cmd = new SqlCommand(querry, myCon);
             cmd.CommandType = CommandType.Text;
-            myCon.Open();
-            ok = cmd.ExecuteNonQuery();
-            myCon.Close();
-
+            try
+            {
+                myCon.Open();
+                ok = cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
+            }
             if (ok > 0)
             {
                 return true;
@@ -60,27 +69,35 @@ namespace CapaDeDatos
 
         public Permiso[] getPermisos()
         {
-            Permiso[] permisos;
+            Permiso[] permisos = null;
             dTable = new DataTable("permisos");
-            myCon.Open();
-            adapter = new SqlDataAdapter("select u.Usu, um.Id_mod, um.Alta, um.Baja, um.Modifica, um.Consulta, m.Descripcion from Usuarios_Modulos um join Usuario u on um.Usu = u.Usu join Modulo m on um.Id_mod = m.Id_mod", myCon);
-            adapter.Fill(dTable);
-            myCon.Close();
-
-            permisos = new Permiso[dTable.Rows.Count];
-
-            for (int i = 0; i < permisos.Length; i++)
+            try
             {
-                permisos[i] = new Permiso();
-                permisos[i].Usuario = dTable.Rows[i]["Usu"].ToString();
-                permisos[i].Alta = (bool)(dTable.Rows[i]["Alta"]);
-                permisos[i].Baja = (bool)(dTable.Rows[i]["Baja"]);
-                permisos[i].Modifica = (bool)(dTable.Rows[i]["Modifica"]);
-                permisos[i].Consulta = (bool)(dTable.Rows[i]["Consulta"]);
-                permisos[i].Modulo = dTable.Rows[i]["Descripcion"].ToString();
-                permisos[i].nroModulo = (int)dTable.Rows[i]["Id_mod"];
-            }
+                myCon.Open();
+                adapter = new SqlDataAdapter("select u.Usu, um.Id_mod, um.Alta, um.Baja, um.Modifica, um.Consulta, m.Descripcion from Usuarios_Modulos um join Usuario u on um.Usu = u.Usu join Modulo m on um.Id_mod = m.Id_mod", myCon);
+                adapter.Fill(dTable);
+                permisos = new Permiso[dTable.Rows.Count];
 
+                for (int i = 0; i < permisos.Length; i++)
+                {
+                    permisos[i] = new Permiso();
+                    permisos[i].Usuario = dTable.Rows[i]["Usu"].ToString();
+                    permisos[i].Alta = (bool)(dTable.Rows[i]["Alta"]);
+                    permisos[i].Baja = (bool)(dTable.Rows[i]["Baja"]);
+                    permisos[i].Modifica = (bool)(dTable.Rows[i]["Modifica"]);
+                    permisos[i].Consulta = (bool)(dTable.Rows[i]["Consulta"]);
+                    permisos[i].Modulo = dTable.Rows[i]["Descripcion"].ToString();
+                    permisos[i].nroModulo = (int)dTable.Rows[i]["Id_mod"];
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
+            }
             return permisos;
 
         }
@@ -99,23 +116,42 @@ namespace CapaDeDatos
             cmd.Parameters.AddWithValue("@Modifica", permiso.Modifica);
             cmd.Parameters.AddWithValue("@Consulta", permiso.Consulta);
             cmd.Parameters.AddWithValue("@Id_mod", permiso.nroModulo);
-            myCon.Open();
-            cmd.ExecuteNonQuery();
-            myCon.Close();
+            try
+            {
+                myCon.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
+            }
         }
 
         public bool agregarPermiso(string usuario, int modulo, bool alta, bool baja, bool modifica, bool consulta)
         {
-            int ok;
+            int ok=-1;
             string querry = "insert into Usuarios_Modulos (Usu, Id_mod, Alta, Baja, Modifica, Consulta) ";
             querry += "values ('" + usuario + "'," + modulo + "," + Convert.ToInt32(alta) + "," + Convert.ToInt32(baja) + "," + Convert.ToInt32(modifica) + "," + Convert.ToInt32(consulta) + ");";
 
             SqlCommand cmd = new SqlCommand(querry, myCon);
             cmd.CommandType = CommandType.Text;
-            myCon.Open();
-            ok = cmd.ExecuteNonQuery();
-            myCon.Close();
-
+            try
+            {
+                myCon.Open();
+                ok = cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
+            }
             if (ok > 0)
             {
                 return true;

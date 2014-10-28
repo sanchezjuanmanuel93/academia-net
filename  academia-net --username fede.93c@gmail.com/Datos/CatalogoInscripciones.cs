@@ -42,50 +42,71 @@ namespace CapaDeDatos
         {
             List<Inscripciones> Inscripciones = new List<Inscripciones>();
             dTable = new DataTable("Inscripciones");
-            myCon.Open();
-            adapter = new SqlDataAdapter("select * from Personas_Materias pm join Materia m on pm.id_mat = m.id_mat join Persona p on p.legajo = pm.legajo", myCon);
-            adapter.Fill(dTable);
-            myCon.Close();
-            if (dTable.Rows.Count != 0)
+            try
             {
-                foreach (DataRow row in dTable.Rows)
+
+                myCon.Open();
+                adapter = new SqlDataAdapter("select * from Personas_Materias pm join Materia m on pm.id_mat = m.id_mat join Persona p on p.legajo = pm.legajo", myCon);
+                adapter.Fill(dTable);
+                if (dTable.Rows.Count != 0)
                 {
-                    Inscripciones inscripcion = new Inscripciones();
-                    inscripcion.Legajo = (int)row["Legajo"];
-                    inscripcion.nroMateria = (int)row["id_mat"];
-                    inscripcion.fecha = (DateTime)row["fecha"];
-                    inscripcion.NombreMateria = row["Descripcion"].ToString();
-                    inscripcion.Nombre = row["Nombre"].ToString();
-                    inscripcion.Apellido = row["apellido"].ToString();
-                    Inscripciones.Add(inscripcion);
+                    foreach (DataRow row in dTable.Rows)
+                    {
+                        Inscripciones inscripcion = new Inscripciones();
+                        inscripcion.Legajo = (int)row["Legajo"];
+                        inscripcion.nroMateria = (int)row["id_mat"];
+                        inscripcion.fecha = (DateTime)row["fecha"];
+                        inscripcion.NombreMateria = row["Descripcion"].ToString();
+                        inscripcion.Nombre = row["Nombre"].ToString();
+                        inscripcion.Apellido = row["apellido"].ToString();
+                        Inscripciones.Add(inscripcion);
+                    }
+                    return Inscripciones;
                 }
-                return Inscripciones;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
             }
             return null;
         }
 
         public List<Inscripciones> getInscripciones(string legajo)
         {
-            List<Inscripciones> Inscripciones = new List<Inscripciones>();
-            dTable = new DataTable("Inscripciones");
-            myCon.Open();
-            adapter = new SqlDataAdapter("select * from Personas_Materias pm join Materia m on pm.id_mat = m.id_mat join Persona p on p.legajo = pm.legajo where p.legajo ='" + legajo + "'", myCon);
-            adapter.Fill(dTable);
-            myCon.Close();
-            if (dTable.Rows.Count != 0)
+            try
             {
-                foreach (DataRow row in dTable.Rows)
+                List<Inscripciones> Inscripciones = new List<Inscripciones>();
+                dTable = new DataTable("Inscripciones");
+                myCon.Open();
+                adapter = new SqlDataAdapter("select * from Personas_Materias pm join Materia m on pm.id_mat = m.id_mat join Persona p on p.legajo = pm.legajo where p.legajo ='" + legajo + "'", myCon);
+                adapter.Fill(dTable);
+                if (dTable.Rows.Count != 0)
                 {
-                    Inscripciones inscripcion = new Inscripciones();
-                    inscripcion.Legajo = (int)row["Legajo"];
-                    inscripcion.nroMateria = (int)row["id_mat"];
-                    inscripcion.fecha = (DateTime)row["fecha"];
-                    inscripcion.NombreMateria = row["Descripcion"].ToString();
-                    inscripcion.Nombre = row["Nombre"].ToString();
-                    inscripcion.Apellido = row["apellido"].ToString();
-                    Inscripciones.Add(inscripcion);
+                    foreach (DataRow row in dTable.Rows)
+                    {
+                        Inscripciones inscripcion = new Inscripciones();
+                        inscripcion.Legajo = (int)row["Legajo"];
+                        inscripcion.nroMateria = (int)row["id_mat"];
+                        inscripcion.fecha = (DateTime)row["fecha"];
+                        inscripcion.NombreMateria = row["Descripcion"].ToString();
+                        inscripcion.Nombre = row["Nombre"].ToString();
+                        inscripcion.Apellido = row["apellido"].ToString();
+                        Inscripciones.Add(inscripcion);
+                    }
+                    return Inscripciones;
                 }
-                return Inscripciones;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
             }
             return null;
         }
@@ -97,29 +118,47 @@ namespace CapaDeDatos
 
             SqlCommand cmd = new SqlCommand(querry, myCon);
             cmd.CommandType = CommandType.Text;
-            myCon.Open();
-            ok = cmd.ExecuteNonQuery();
-            myCon.Close();
-
-            if (ok > 0)
+            try
             {
-                return true;
+                myCon.Open();
+                ok = cmd.ExecuteNonQuery();
+                if (ok > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
             }
             return false;
         }
 
         public bool agregaInscripcion(string legajo, string id_mat, string fecha)
         {
-            int ok;
+            int ok=-1;
             string querry = "insert into Personas_Materias (Legajo, Id_mat, fecha)";
             querry += "values (" + legajo + ",'" + id_mat + "','" + fecha + "');";
 
             SqlCommand cmd = new SqlCommand(querry, myCon);
             cmd.CommandType = CommandType.Text;
-            myCon.Open();
-            ok = cmd.ExecuteNonQuery();
-            myCon.Close();
-
+            try
+            {
+                myCon.Open();
+                ok = cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
+            }
             if (ok > 0)
             {
                 return true;
@@ -137,9 +176,20 @@ namespace CapaDeDatos
             actualizaString += "where Persona.Legajo = '" + inscripcion.Legajo + "' and Materia.Id_mat =" + inscripcion.nroMateria;
             SqlCommand cmd = new SqlCommand(actualizaString, myCon);
             cmd.Parameters.AddWithValue("@fecha", inscripcion.fecha);
-            myCon.Open();
-            ok =cmd.ExecuteNonQuery();
-            myCon.Close();
+            try
+            {
+                myCon.Open();
+                ok = cmd.ExecuteNonQuery();
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
+            }
             if (ok > 0)
             {
                 return true;
