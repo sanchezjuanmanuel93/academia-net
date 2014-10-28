@@ -44,57 +44,87 @@ namespace CapaDeDatos
 
         public Usuario[] getUsuarios()
         {
-            Usuario[] usuarios;
+            Usuario[] usuarios=null;
             dTable = new DataTable("usuarios");
-            myCon.Open();
-            adapter = new SqlDataAdapter("select * from Usuario", myCon);
-            adapter.Fill(dTable);
-            myCon.Close();
-
-            usuarios = new Usuario[dTable.Rows.Count];
-
-            for (int i = 0; i < usuarios.Length; i++)
+            try
             {
-                usuarios[i] = new Usuario();
-                usuarios[i].Usu = dTable.Rows[i]["Usu"].ToString();
-                usuarios[i].Clave = dTable.Rows[i]["Clave"].ToString();
-                usuarios[i].Legajo = (int)dTable.Rows[i]["Legajo"];
-            }
+                myCon.Open();
+                adapter = new SqlDataAdapter("select * from Usuario", myCon);
+                adapter.Fill(dTable);
 
+
+                usuarios = new Usuario[dTable.Rows.Count];
+
+                for (int i = 0; i < usuarios.Length; i++)
+                {
+                    usuarios[i] = new Usuario();
+                    usuarios[i].Usu = dTable.Rows[i]["Usu"].ToString();
+                    usuarios[i].Clave = dTable.Rows[i]["Clave"].ToString();
+                    usuarios[i].Legajo = (int)dTable.Rows[i]["Legajo"];
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
+            }
             return usuarios;
         }
 
 
         public bool eliminarUsuario(string usuario)
         {
-            int ok;
+            int ok=-1;
             string querry = "delete from Usuario where Usuario.Usu = '" + usuario + "'";
 
             SqlCommand cmd = new SqlCommand(querry, myCon);
             cmd.CommandType = CommandType.Text;
-            myCon.Open();
-            ok = cmd.ExecuteNonQuery();
-            myCon.Close();
-
+            try
+            {
+                myCon.Open();
+                ok = cmd.ExecuteNonQuery();
+                myCon.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
+            }
             if (ok > 0)
             {
                 return true;
             }
             return false;
-        }
+           
+       }
 
         public bool agregaUsuario(int legajo, string usuario, string clave)
         {
-            int ok;
+            int ok =-1;
             string querry = "insert into Usuario (Usu, Clave, Legajo) ";
             querry += "values ('" + usuario +"','" + clave + "'," + legajo + ");";
 
             SqlCommand cmd = new SqlCommand(querry, myCon);
             cmd.CommandType = CommandType.Text;
-            myCon.Open();
-            ok = cmd.ExecuteNonQuery();
-            myCon.Close();
-
+            try
+            {
+                myCon.Open();
+                ok = cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
+            }
             if (ok > 0)
             {
                 return true;
@@ -108,10 +138,19 @@ namespace CapaDeDatos
             string actualizaString;
             actualizaString = "UPDATE Usuario SET Clave= '" + usuario.Clave + "', Legajo= '" + usuario.Legajo + "' where Usu='" + usuario.Usu+"'";
             SqlCommand cmd = new SqlCommand(actualizaString, myCon);
-            myCon.Open();
-            ok = cmd.ExecuteNonQuery();
-            myCon.Close();
-
+            try
+            {
+                myCon.Open();
+                ok = cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myCon.Close();
+            }
             if (ok > 0)
             {
                 return true;
