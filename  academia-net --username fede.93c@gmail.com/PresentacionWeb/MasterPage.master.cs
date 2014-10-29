@@ -79,6 +79,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
             case "Materias":
                 Response.Redirect("~/frmMaterias.aspx");
                 break;
+            case "Usuarios":
+                Response.Redirect("~/frmUsuarios.aspx");
+                break;
             default:
                 break;
         }
