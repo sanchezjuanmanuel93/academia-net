@@ -25,7 +25,7 @@
                     >
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:BoundField HeaderText="Legao" DataField="Legajo"></asp:BoundField>
+                        <asp:BoundField HeaderText="Legajo" DataField="Legajo"></asp:BoundField>
                         <asp:BoundField HeaderText="Apellido" DataField="Apellido"></asp:BoundField>
                         <asp:BoundField HeaderText="Nombre" DataField="Nombre"></asp:BoundField>
                         <asp:BoundField HeaderText="Materia" DataField="NombreMateria"></asp:BoundField>
