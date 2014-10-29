@@ -9,7 +9,7 @@
                 <asp:GridView ID="dgvMaterias" runat="server"  CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" 
                     DataSourceID="odsMaterias">
                     <Columns>
-                        <asp:CommandField ShowSelectButton="True" />
+                        <asp:CommandField ShowSelectButton="True" ButtonType="Button" />
                         <asp:BoundField DataField="nroMateria" HeaderText="nroMateria" 
                             SortExpression="nroMateria" />
                         <asp:BoundField DataField="Nombre" HeaderText="Nombre" 
@@ -34,7 +34,8 @@
                                 onclick="btnBaja_Click" />
                         </td>
                         <td class="auto-style10">
-                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="86px"   />
+                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="86px" 
+                                onclick="btnGuardar_Click"   />
                         </td>
                         <td>
                             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="86px" />

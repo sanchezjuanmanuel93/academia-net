@@ -30,4 +30,8 @@ public partial class frmMaterias : System.Web.UI.Page
             controladorMaterias.eliminarMateria(fila.Cells[2].Text);
         }
     }
+    protected void btnGuardar_Click(object sender, EventArgs e)
+    {
+
+    }
 }
