@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Entidades;
 using Negocio;
+using Utilidades;
 
 namespace Presentacion
 {
@@ -71,9 +72,9 @@ namespace Presentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (txtUsuario.Text != string.Empty && txtClave.Text != string.Empty)
+            if (this.comprobarCampos())
             {
-                if (estaModificando)
+                if (this.estaModificando)
                 {
                     Usuario u = new Usuario();
                     u.Legajo = int.Parse(((Persona)(cmbPersona.SelectedItem)).Legajo);
@@ -102,10 +103,27 @@ namespace Presentacion
                     }
                 }
             }
-            else
+        }
+
+        private Boolean comprobarCampos()
+        {
+            Boolean resultado = true;
+            List<String> listado = new List<string>();
+            if(!Formato.isUsuario(this.txtUsuario.Text))
             {
-                MessageBox.Show("Complete los campos");
+                resultado = false;
+                listado.Add("Usuario Incorrecto");
             }
+            if (!Formato.isClave(this.txtClave.Text))
+            {
+                resultado = false;
+                listado.Add("Password Incorrecto");
+            }
+            if (!resultado)
+            {
+                MensajeError.mostrarMensaje(listado);
+            }
+            return resultado;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

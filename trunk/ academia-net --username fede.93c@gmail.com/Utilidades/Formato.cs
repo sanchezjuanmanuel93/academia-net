@@ -94,7 +94,7 @@ namespace Utilidades
         public static Boolean isTelefono(String telefono)
         {
             Boolean resultado = true;
-            if (telefono.Length > 20)
+            if (!String.IsNullOrEmpty(telefono) && telefono.Length < 20)
             {
                 foreach (Char ch in telefono)
                 {
@@ -104,6 +104,10 @@ namespace Utilidades
                         break;
                     }
                 }
+            }
+            else
+            {
+                resultado = false;
             }
             return resultado;
         }
