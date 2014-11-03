@@ -57,7 +57,7 @@ namespace Presentacion
             foreach (DataGridViewCell cell in dgvMaterias.SelectedCells)
             {
                 DataGridViewRow dgvRow = cell.OwningRow;
-                controladorMaterias.eliminarMateria(dgvRow.Cells["Nombre"].Value.ToString());
+                Boolean a = controladorMaterias.eliminarMateria(dgvRow.Cells["Nombre"].Value.ToString());
             }
             llenarGrilla();
         }

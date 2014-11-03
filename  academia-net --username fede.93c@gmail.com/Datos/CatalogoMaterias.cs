@@ -132,13 +132,12 @@ namespace CapaDeDatos
         public bool eliminarMateria(string nombre)
         {
             int ok =-1;
-            string querry = "delete from Materia where Materia.Descripcion = " + nombre;
+            string querry = "delete from Materia where Materia.Descripcion = '" + nombre+"'";
 
             SqlCommand cmd = new SqlCommand(querry, myCon);
             cmd.CommandType = CommandType.Text;
             try
             {
-
                 myCon.Open();
                 ok = cmd.ExecuteNonQuery();
             }

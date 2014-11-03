@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Entidades;
 using Negocio;
+using Utilidades;
 
 namespace Presentacion
 {
@@ -27,13 +28,16 @@ namespace Presentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (controladorPersonas.agregarPersona(txtLegajo.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtEmail.Text, ((TipoPersona)cmbTipo.SelectedItem).tipo))
+            if (this.comprobarCampos())
             {
-                MessageBox.Show("Agregada");
-                this.Close();
+                if (controladorPersonas.agregarPersona(txtLegajo.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtEmail.Text, ((TipoPersona)cmbTipo.SelectedItem).tipo))
+                {
+                    MessageBox.Show("Agregada");
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Persona existente o campos incorrectos");
             }
-            else
-                MessageBox.Show("Persona existente o campos incorrectos");
         }
 
         private void frmAltaPersonas_Load(object sender, EventArgs e)
@@ -47,7 +51,43 @@ namespace Presentacion
             txtLegajo.Focus();
         }
 
+        private Boolean comprobarCampos()
+        {
+            Boolean bandera = true;
+            List<String> listado = new List<string>();
+            if (!Formato.isNombreOApellido(this.txtNombre.Text))
+            {
+                listado.Add("Error al ingresar el nombre");
+                bandera = false;
+            }
+            if (!Formato.isNombreOApellido(this.txtApellido.Text))
+            {
+                listado.Add("Error al ingresar el apellido");
+                bandera = false;
+            }
+            if (!Formato.isEmail(this.txtEmail.Text))
+            {
+                listado.Add("Error al ingresar el email");
+                bandera = false;
+            }
+            if (!Formato.isLegajo(this.txtLegajo.Text))
+            {
+                listado.Add("Error al ingresar el legajo");
+                bandera = false;
+            }
+            if (!Formato.isTelefono(this.txtTelefono.Text))
+            {
+                listado.Add("Error al ingresar el telefono");
+                bandera = false;
+            }
+            if (!bandera)
+            {
+                MensajeError.mostrarMensaje(listado);
+            }
+            return bandera;
+        }
 
+        
 
 
     }

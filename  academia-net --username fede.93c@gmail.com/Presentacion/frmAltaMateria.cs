@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Entidades;
 using Negocio;
+using Utilidades;
 
 namespace Presentacion
 {
@@ -35,7 +36,7 @@ namespace Presentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if ((txtNumero.Text != null) && (numerico(txtNumero.Text)) && (txtNombre.Text != null))
+            if ((txtNumero.Text != null) && (numerico(txtNumero.Text)))
             {
                 if (controladorMaterias.agregarMateria(txtNumero.Text, txtNombre.Text))
                 {
@@ -45,10 +46,17 @@ namespace Presentacion
                 else
                     MessageBox.Show("Error al agregar materia", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+        }
+
+        private Boolean comprobarCampos()
+        {
+            Boolean resultado = true;
+            if (!Formato.isNombreMateria(this.txtNombre.Text))
             {
-                MessageBox.Show("Complete los campos correctamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                resultado = false;
+                MensajeError.mostrarMensaje("Error en el nombre de la materia");
             }
+           return resultado;
         }
 
         private void frmAltaMateria_Load(object sender, EventArgs e)
