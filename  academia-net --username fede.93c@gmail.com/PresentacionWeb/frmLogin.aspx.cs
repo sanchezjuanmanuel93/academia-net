@@ -9,12 +9,17 @@ using Negocio;
 
 public partial class frmLogin : System.Web.UI.Page
 {
+    Persona persona;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        persona = (Persona)Session["persona"];
+        if (!(persona == null))
+        {
+            Response.Redirect("~/frmPrincipal.aspx");
+        }
     }
 
-    Persona persona;
     protected void btnIngresar_Click(object sender, EventArgs e)
     {
         ControladorLogging login = new ControladorLogging();

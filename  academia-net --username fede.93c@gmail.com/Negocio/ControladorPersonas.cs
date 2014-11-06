@@ -12,6 +12,7 @@ namespace Negocio
 
         CatalogoPersonas catalogoPersona = CatalogoPersonas.Instancia;
         CatalogoPermisos catalogoPermisos = CatalogoPermisos.Instancia;
+        CatalogoUsuarios catalogoUsuarios = CatalogoUsuarios.Instancia;
 
         public List<Persona> getPersonas()
         {
@@ -79,5 +80,22 @@ namespace Negocio
             }
             return false;
         }
+
+        public Usuario getUsuarioCorrespondiente(Persona persona)
+        {
+            Usuario[] usuarios = catalogoUsuarios.getUsuarios();
+            Usuario resultado = null;
+            for (int i = 0; i < usuarios.Length; i++)
+            {
+                if (usuarios[i].Legajo.ToString().Equals(persona.Legajo))
+                {
+                    resultado = usuarios[i];
+                    break;
+                }
+            }
+            return resultado;
+        }
     }
+
+
 }

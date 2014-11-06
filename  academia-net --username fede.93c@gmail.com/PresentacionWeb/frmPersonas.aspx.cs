@@ -11,10 +11,24 @@ public partial class frmPersonas : System.Web.UI.Page
 {
     Persona persona;
     ControladorPersonas controladorPersonas = new ControladorPersonas();
+    ControladorPermisos controladorPermisos = new ControladorPermisos();
 
     protected void Page_Load(object sender, EventArgs e)
     {
         persona = (Persona)Session["persona"];
+        if (persona != null)
+        {
+            Usuario usuarioCorrespondiente = controladorPersonas.getUsuarioCorrespondiente(persona);
+            Boolean permiso = controladorPermisos.getPermiso(usuarioCorrespondiente.Usu, "consulta", "personas");
+            if (!permiso)
+            {
+                Response.Redirect("~/frmPrincipal.aspx");
+            }
+        }
+        else
+        {
+            Response.Redirect("~/frmPrincipal.aspx");
+        }
     }
     
     

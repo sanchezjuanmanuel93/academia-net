@@ -12,10 +12,24 @@ public partial class frmAltaPersona : System.Web.UI.Page
 {
     Persona persona;
     ControladorPersonas controladorPersonas = new ControladorPersonas();
+    ControladorPermisos controladorPermisos = new ControladorPermisos();
 
     protected void Page_Load(object sender, EventArgs e)
     {
         persona = (Persona)Session["persona"];
+        if (persona != null)
+        {
+            Usuario usuarioCorrespondiente = controladorPersonas.getUsuarioCorrespondiente(persona);
+            Boolean permiso = controladorPermisos.getPermiso(usuarioCorrespondiente.Usu, "alta", "personas");
+            if (!permiso)
+            {
+                Response.Redirect("~/frmPersonas.aspx");
+            }
+        }
+        else
+        {
+            Response.Redirect("~/frmPersonas.aspx");
+        }
     }
     protected void btnGuardar_Click(object sender, EventArgs e)
     {

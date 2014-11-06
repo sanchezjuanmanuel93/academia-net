@@ -20,7 +20,8 @@
         </tr>
         <tr>
             <td class="auto-style9">
-                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
+                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" 
+                    onclick="btnCancelar_Click" />
             </td>
             <td>
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="140px" OnClick="btnGuardar_Click" />

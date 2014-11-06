@@ -12,11 +12,25 @@ public partial class frmPermisos : System.Web.UI.Page
 
     Persona persona;
     ControladorPermisos controladorPermisos = new ControladorPermisos();
+    ControladorPersonas controladorPersonas = new ControladorPersonas();
     static Permiso[] permisos;
 
     protected void Page_Load(object sender, EventArgs e)
     {
         persona = (Persona)Session["persona"];
+        if (persona != null)
+        {
+            Usuario usuarioCorrespondiente = controladorPersonas.getUsuarioCorrespondiente(persona);
+            Boolean permiso = controladorPermisos.getPermiso(usuarioCorrespondiente.Usu, "consulta", "permisos");
+            if (!permiso)
+            {
+                Response.Redirect("~/frmPrincipal.aspx");
+            }
+        }
+        else
+        {
+            Response.Redirect("~/frmPrincipal.aspx");
+        }
         if (!Page.IsPostBack)
         {
             cargar();
@@ -111,5 +125,9 @@ public partial class frmPermisos : System.Web.UI.Page
         controladorPermisos.eliminarPermiso(p.Usuario, p.Modulo);
         cargar();
         dgvPermisos.SelectedIndex = -1;
+    }
+    protected void btnAlta_Click(object sender, EventArgs e)
+    {
+        this.Response.Redirect("~/frmAltaPermisos.aspx");
     }
 }

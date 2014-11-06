@@ -10,13 +10,26 @@ using Negocio;
 public partial class frmMaterias : System.Web.UI.Page
 {
     static Persona persona;
-    ControladorMaterias controladorMaterias;
-    ControladorPermisos controladorPermisos;
+    ControladorMaterias controladorMaterias = new ControladorMaterias();
+    ControladorPermisos controladorPermisos = new ControladorPermisos();
+    ControladorPersonas controladorPersonas = new ControladorPersonas();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         persona = (Persona)Session["persona"];
-        controladorMaterias = new ControladorMaterias();
-        controladorPermisos = new ControladorPermisos();
+        if (persona != null)
+        {
+            Usuario usuarioCorrespondiente = controladorPersonas.getUsuarioCorrespondiente(persona);
+            Boolean permiso = controladorPermisos.getPermiso(usuarioCorrespondiente.Usu, "consulta", "materias");
+            if (!permiso)
+            {
+                Response.Redirect("~/frmPrincipal.aspx");
+            }
+        }
+        else
+        {
+            Response.Redirect("~/frmPrincipal.aspx");
+        }
       //  llenarGrilla();
         chequearPermisos();
 

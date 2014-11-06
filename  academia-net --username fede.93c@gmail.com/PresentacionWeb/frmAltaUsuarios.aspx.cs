@@ -11,10 +11,26 @@ public partial class frmAltaMaterias : System.Web.UI.Page
 {
     ControladorUsuarios controladorUsuarios = new ControladorUsuarios();
     ControladorPersonas controladorPersonas = new ControladorPersonas();
+    ControladorPermisos controladorPermisos = new ControladorPermisos();
+    Persona persona;
 
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        persona = (Persona)Session["persona"];
+        if (persona != null)
+        {
+            Usuario usuarioCorrespondiente = controladorPersonas.getUsuarioCorrespondiente(persona);
+            Boolean permiso = controladorPermisos.getPermiso(usuarioCorrespondiente.Usu, "alta", "usuarios");
+            if (!permiso)
+            {
+                Response.Redirect("~/frmUsuarios.aspx");
+            }
+        }
+        else
+        {
+            Response.Redirect("~/frmUsuarios.aspx");
+        }
         if (!this.IsPostBack)
         {
             List<Persona> listaPersonas = controladorPersonas.getPersonas();
