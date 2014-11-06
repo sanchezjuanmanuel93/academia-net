@@ -113,6 +113,49 @@ namespace Negocio
             return catalogoPermisos.agregarPermiso(usuario, nroMod, alta, baja, modifica, consulta);
         }
 
+        public bool getPermiso(string usuario, string boton, string modulo)
+        {
+            Permiso[] permisos = catalogoPermisos.getPermisos();
+            foreach (Permiso permiso in permisos)
+            {
+                if (permiso != null)
+                {
+                    if ((permiso.Usuario == usuario) && (permiso.Modulo.ToLower().Equals(modulo.ToLower())))
+                    {
+                        switch (boton.ToLower())
+                        {
+                            case "alta":
+                                if (permiso.Alta == true)
+                                {
+                                    return true;
+                                }
+                                break;
+                            case "baja":
+                                if (permiso.Baja == true)
+                                {
+                                    return true;
+                                }
+                                break;
+                            case "modifica":
+                                if (permiso.Modifica == true)
+                                {
+                                    return true;
+                                }
+                                break;
+                            case "consulta":
+                                if (permiso.Consulta == true)
+                                {
+                                    return true;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
 
        
     }

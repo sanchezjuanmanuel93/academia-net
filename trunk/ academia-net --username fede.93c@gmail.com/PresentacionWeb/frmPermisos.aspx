@@ -66,7 +66,8 @@
                 <table style="width: 100%;">
                     <tr>
                         <td class="auto-style9">
-                            <asp:Button ID="btnAlta" runat="server" Text="Alta" Width="87px" />
+                            <asp:Button ID="btnAlta" runat="server" Text="Alta" Width="87px" 
+                                onclick="btnAlta_Click" />
                         </td>
                         <td class="auto-style9">
                             <asp:Button ID="btnBaja" runat="server" Text="Baja" Width="86px" OnClick="btnBaja_Click" style="height: 26px" />

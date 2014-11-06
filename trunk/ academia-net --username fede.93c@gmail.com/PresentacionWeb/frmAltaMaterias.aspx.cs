@@ -10,10 +10,26 @@ using Entidades;
 public partial class frmAltaMaterias : System.Web.UI.Page
 {
     ControladorMaterias controladorMaterias;
+    ControladorPersonas controladorPersonas;
+    ControladorPermisos controladorPermisos;
     Persona persona;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         persona = (Persona)Session["persona"];
+        if (persona != null)
+        {
+            Usuario usuarioCorrespondiente = controladorPersonas.getUsuarioCorrespondiente(persona);
+            Boolean permiso = controladorPermisos.getPermiso(usuarioCorrespondiente.Usu, "alta", "materias");
+            if (!permiso)
+            {
+                Response.Redirect("~/frmMaterias.aspx");
+            }
+        }
+        else
+        {
+            Response.Redirect("~/frmMaterias.aspx");
+        }
         controladorMaterias = new ControladorMaterias();
     }
 

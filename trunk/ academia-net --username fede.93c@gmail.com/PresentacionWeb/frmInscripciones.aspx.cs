@@ -10,10 +10,26 @@ using Negocio;
 public partial class frmInscripciones : System.Web.UI.Page
 {
     ControladorInscripciones controladorInscripciones;
+    ControladorPersonas controladorPersonas = new ControladorPersonas();
+    ControladorPermisos controladorPermisos = new ControladorPermisos();
     Persona persona;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         persona = (Persona)Session["persona"];
+        if (persona != null)
+        {
+            Usuario usuarioCorrespondiente = controladorPersonas.getUsuarioCorrespondiente(persona);
+            Boolean permiso = controladorPermisos.getPermiso(usuarioCorrespondiente.Usu, "consulta", "inscripciones");
+            if (!permiso)
+            {
+                Response.Redirect("~/frmPrincipal.aspx");
+            }
+        }
+        else
+        {
+            Response.Redirect("~/frmPrincipal.aspx");
+        }
         controladorInscripciones = new ControladorInscripciones();
         llenarGrilla();
     }

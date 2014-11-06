@@ -40,7 +40,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             if (item.Text != "Inicio")
             {
-                if( cP.getPermisoUsuarioModulo(persona.Usuario, item.Value) == false)
+                if (cP.getPermiso(persona.Usuario, "consulta", item.Value) == false)
                 {
                     item.Text = "";
                 }
