@@ -6,14 +6,11 @@
     <table style="width: 100%;">
         <tr>
             <td>
-                <asp:GridView ID="dgvMaterias" runat="server"  CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" 
-                    DataSourceID="odsMaterias">
+                <asp:GridView ID="dgvMaterias" runat="server"  CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" OnRowDataBound="dgvMaterias_RowDataBound" DataSourceID="odsMateria">
                     <Columns>
-                        <asp:CommandField ShowSelectButton="True" ButtonType="Button" />
-                        <asp:BoundField DataField="nroMateria" HeaderText="nroMateria" 
-                            SortExpression="nroMateria" />
-                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" 
-                            SortExpression="Nombre" />
+                        <asp:CommandField ShowEditButton="True" ShowSelectButton="True" />
+                        <asp:BoundField DataField="nroMateria" HeaderText="nroMateria" SortExpression="nroMateria" />
+                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                     </Columns>
                     <EditRowStyle BackColor="#2461BF" />
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -26,9 +23,7 @@
                     <SortedDescendingCellStyle BackColor="#E9EBEF" />
                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
-                <asp:ObjectDataSource ID="odsMaterias" runat="server" 
-                    SelectMethod="getMaterias" TypeName="Negocio.ControladorMaterias">
-                </asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="odsMateria" runat="server" DataObjectTypeName="Entidades.Materias" SelectMethod="getMaterias" TypeName="Negocio.ControladorMaterias" UpdateMethod="actualizaMateria"></asp:ObjectDataSource>
             </td>
         </tr>
         <tr>
