@@ -11,6 +11,8 @@ namespace Negocio
     {
         CatalogoInscripciones catalogoInscrpciones = CatalogoInscripciones.Instancia;
         CatalogoMaterias catalogoMateria = CatalogoMaterias.Instancia;
+        CatalogoPermisos catalogoPermisos = CatalogoPermisos.Instancia;
+
         List<Inscripciones> Inscripciones;
         public List<Inscripciones> getInscripciones(string legajo)
         {
@@ -40,6 +42,43 @@ namespace Negocio
             return catalogoInscrpciones.eliminarInscripcion(Inscripciones[Index].Legajo.ToString(),Inscripciones[Index].nroMateria.ToString());
         }
 
+        public bool getPermiso(string usuario, string boton)
+        {
+            Permiso[] permisos = catalogoPermisos.getPermisos();
+            foreach (Permiso permiso in permisos)
+            {
+                if (permiso != null)
+                {
+                    if ((permiso.Usuario == usuario) && (permiso.Modulo == "Inscripciones"))
+                    {
+                        switch (boton)
+                        {
+                            case "alta":
+                                if (permiso.Alta == true)
+                                {
+                                    return true;
+                                }
+                                break;
+                            case "baja":
+                                if (permiso.Baja == true)
+                                {
+                                    return true;
+                                }
+                                break;
+                            case "modifica":
+                                if (permiso.Modifica == true)
+                                {
+                                    return true;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
 
         public bool agregarInscripcion(string legajo, string idMateria, DateTime fecha)
         {

@@ -70,8 +70,13 @@ namespace Negocio
         {
             foreach (Materias materia in materias)
             {
-                catalogoMaterias.actualizarMaterias(materia);
+                actualizaMateria(materia);
             }
+        }
+
+        public void actualizaMateria(Materias materia)
+        {
+            catalogoMaterias.actualizarMaterias(materia);
         }
     }
 
