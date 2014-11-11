@@ -78,6 +78,11 @@
                     onclick="btnCancelar_Click" />
             </td>
         </tr>
+        <tr>
+            <td></td><td>
+                <asp:Label ID="lblMensaje" runat="server" ForeColor="Red"></asp:Label>
+            </td>
+        </tr>
         </table>
 </asp:Content>
 

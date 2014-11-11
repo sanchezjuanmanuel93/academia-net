@@ -50,4 +50,8 @@ public partial class frmAltaMaterias : System.Web.UI.Page
             lblMensaje.Text = "Complete los campos correctamente";
         }
     }
+    protected void btnCancelar_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/frmMaterias.aspx");
+    }
 }

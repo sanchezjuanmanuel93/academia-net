@@ -56,7 +56,7 @@ public partial class frmAltaMaterias : System.Web.UI.Page
 
     protected void btnGuardar_Click1(object sender, EventArgs e)
     {
-        if (this.dgvPersonas.SelectedRow != null)
+        if ((this.dgvPersonas.SelectedRow != null) && (txtUsuario.Text != null) && (txtClave.Text != null))
         {
             Persona persona = new Persona();
             persona.Apellido = this.dgvPersonas.SelectedRow.Cells[3].Text;
@@ -69,10 +69,15 @@ public partial class frmAltaMaterias : System.Web.UI.Page
             controladorUsuarios.agregarUsuario(persona, usuario, clave);
             this.Response.Redirect("~/frmUsuarios.aspx");
         }
+        else
+        {
+            lblMensaje.Text = "Por favor, complete los campos";
+        }
 
     }
     protected void btnCancelar_Click(object sender, EventArgs e)
     {
         this.Response.Redirect("~/frmUsuarios.aspx");
     }
+    
 }
