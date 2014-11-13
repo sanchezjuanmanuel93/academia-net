@@ -79,5 +79,11 @@ namespace Presentacion
         {
             guardar();
         }
+
+        private void btnInforme_Click(object sender, EventArgs e)
+        {
+            frmInformeMaterias form = new frmInformeMaterias();
+            form.ShowDialog();
+        }
     }
 }
