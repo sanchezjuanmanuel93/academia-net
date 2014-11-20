@@ -32,6 +32,8 @@
             this.crvDatos = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.cmbPersonas = new System.Windows.Forms.ComboBox();
             this.lblPersonas = new System.Windows.Forms.Label();
+            this.crpMaterias1 = new Presentacion.crpMaterias();
+            this.crpMaterias2 = new Presentacion.crpMaterias();
             this.SuspendLayout();
             // 
             // btnInforme
@@ -99,5 +101,7 @@
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crvDatos;
         private System.Windows.Forms.ComboBox cmbPersonas;
         private System.Windows.Forms.Label lblPersonas;
+        private crpMaterias crpMaterias1;
+        private crpMaterias crpMaterias2;
     }
 }
