@@ -44,7 +44,9 @@
                         </td>
                         <td>
                             <asp:Button ID="btnInforme" runat="server" onclick="btnInforme_Click" 
-                                Text="Informe" />
+                                Text="Informe" Width="86px" />
+                        </td>
+                        <td>
                             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="86px" />
                         </td>
                     </tr>
