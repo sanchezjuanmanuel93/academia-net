@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entidades;
 using Negocio;
+using Utilidades;
 
 public partial class frmLogin : System.Web.UI.Page
 {
@@ -23,7 +24,7 @@ public partial class frmLogin : System.Web.UI.Page
     protected void btnIngresar_Click(object sender, EventArgs e)
     {
         ControladorLogging login = new ControladorLogging();
-        if (!(txtUsuario.Text == string.Empty && txtContraseña.Text == string.Empty))
+        if ((Formato.isUsuario(txtUsuario.Text) && Formato.isClave(txtContraseña.Text)))
         {
             if (login.ingresar(txtUsuario.Text, txtContraseña.Text))
             {
