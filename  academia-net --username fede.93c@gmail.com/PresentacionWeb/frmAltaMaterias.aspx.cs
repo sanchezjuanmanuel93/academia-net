@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Entidades;
+using Utilidades;
 
 public partial class frmAltaMaterias : System.Web.UI.Page
 {
@@ -35,7 +36,7 @@ public partial class frmAltaMaterias : System.Web.UI.Page
 
     protected void btnGuardar_Click(object sender, EventArgs e)
     {
-        if ((txtNumero.Text != null) && (txtNombre.Text != null))
+        if ((txtNumero.Text != null) && (Formato.isNombreMateria(txtNombre.Text)))
         {
             if (controladorMaterias.agregarMateria(txtNumero.Text, txtNombre.Text))
             {

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Entidades;
+using Utilidades;
 
 public partial class frmAltaMaterias : System.Web.UI.Page
 {
@@ -56,7 +57,7 @@ public partial class frmAltaMaterias : System.Web.UI.Page
 
     protected void btnGuardar_Click1(object sender, EventArgs e)
     {
-        if ((this.dgvPersonas.SelectedRow != null) && (txtUsuario.Text != null) && (txtClave.Text != null))
+        if ((this.dgvPersonas.SelectedRow != null) && (Formato.isUsuario(txtUsuario.Text)) && (Formato.isClave(txtClave.Text)))
         {
             Persona persona = new Persona();
             persona.Apellido = this.dgvPersonas.SelectedRow.Cells[3].Text;

@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entidades;
 using Negocio;
-
+using Utilidades;
 
 public partial class frmAltaPersona : System.Web.UI.Page
 {
@@ -34,7 +34,7 @@ public partial class frmAltaPersona : System.Web.UI.Page
     protected void btnGuardar_Click(object sender, EventArgs e)
     {
         String valorTipo = ddlTipo.SelectedValue;
-        if ((txtLegajo.Text != null) && (txtNombre.Text != null) && (txtApellido.Text != null) && (txtTelefono.Text != null) && (txtEmail.Text != null) && (valorTipo != null) )
+        if ((Formato.isLegajo(txtLegajo.Text)) && (Formato.isNombreOApellido(txtNombre.Text)) && (Formato.isNombreOApellido(txtApellido.Text)) && (Formato.isTelefono(txtTelefono.Text)) && (Formato.isEmail(txtEmail.Text)) && (valorTipo != null) )
         {
             
             if (controladorPersonas.agregarPersona(txtLegajo.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtEmail.Text, Convert.ToInt32(valorTipo)))
