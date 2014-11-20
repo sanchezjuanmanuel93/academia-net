@@ -43,6 +43,8 @@
                                 onclick="btnGuardar_Click"   />
                         </td>
                         <td>
+                            <asp:Button ID="btnInforme" runat="server" onclick="btnInforme_Click" 
+                                Text="Informe" />
                             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="86px" />
                         </td>
                     </tr>

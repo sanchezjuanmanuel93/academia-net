@@ -16,22 +16,24 @@ public partial class frmMaterias : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        persona = (Persona)Session["persona"];
-        if (persona != null)
+        if (!this.IsPostBack)
         {
-            Usuario usuarioCorrespondiente = controladorPersonas.getUsuarioCorrespondiente(persona);
-            Boolean permiso = controladorPermisos.getPermiso(usuarioCorrespondiente.Usu, "consulta", "materias");
-            if (!permiso)
+            persona = (Persona)Session["persona"];
+            if (persona != null)
+            {
+                Usuario usuarioCorrespondiente = controladorPersonas.getUsuarioCorrespondiente(persona);
+                Boolean permiso = controladorPermisos.getPermiso(usuarioCorrespondiente.Usu, "consulta", "materias");
+                if (!permiso)
+                {
+                    Response.Redirect("~/frmPrincipal.aspx");
+                }
+            }
+            else
             {
                 Response.Redirect("~/frmPrincipal.aspx");
             }
+            chequearPermisos();
         }
-        else
-        {
-            Response.Redirect("~/frmPrincipal.aspx");
-        }
-      //  llenarGrilla();
-        chequearPermisos();
 
     }
 
@@ -96,5 +98,9 @@ public partial class frmMaterias : System.Web.UI.Page
     protected void dgvMaterias_RowDataBound(object sender, GridViewRowEventArgs e)
     {
 
+    }
+    protected void btnInforme_Click(object sender, EventArgs e)
+    {
+        this.Response.Redirect("~/frmInformeMaterias.aspx");
     }
 }
