@@ -10,8 +10,8 @@ using Negocio;
 public partial class frmAltaInscripcion : System.Web.UI.Page
 {
     Persona persona;
-    String[] materias;
-    String[] idmateria;
+    static String[] materias;
+    static String[] idmateria;
     ControladorInscripciones controladorInscripciones = new ControladorInscripciones();
     ControladorPersonas controladorPersona = new ControladorPersonas();
     ControladorUsuarios controladorUsuarios = new ControladorUsuarios();
@@ -21,20 +21,23 @@ public partial class frmAltaInscripcion : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         persona = (Persona)Session["persona"];
-        if (persona != null)
+        if (!this.IsPostBack)
         {
-            Usuario usuarioCorrespondiente = controladorPersona.getUsuarioCorrespondiente(persona);
-            Boolean permiso = controladorPermisos.getPermiso(usuarioCorrespondiente.Usu, "alta", "inscripciones");
-            if (!permiso)
+            if (persona != null)
+            {
+                Usuario usuarioCorrespondiente = controladorPersona.getUsuarioCorrespondiente(persona);
+                Boolean permiso = controladorPermisos.getPermiso(usuarioCorrespondiente.Usu, "alta", "inscripciones");
+                if (!permiso)
+                {
+                    Response.Redirect("~/frmInscripciones.aspx");
+                }
+            }
+            else
             {
                 Response.Redirect("~/frmInscripciones.aspx");
             }
+            this.llenarCombo();
         }
-        else
-        {
-            Response.Redirect("~/frmInscripciones.aspx");
-        }
-        this.llenarCombo();
     }
 
     protected void llenarCombo()
@@ -61,7 +64,7 @@ public partial class frmAltaInscripcion : System.Web.UI.Page
         String id = "";
         for (int i = 0; i < materias.Length; i++)
         {
-            if (materias[i].Equals(this.cmbMaterias.SelectedItem.Value))
+            if (materias[i].Equals(this.cmbMaterias.SelectedValue))
             {
                 id = idmateria[i];
             }
