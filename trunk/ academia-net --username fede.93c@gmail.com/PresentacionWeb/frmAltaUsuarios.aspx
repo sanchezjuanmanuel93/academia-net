@@ -37,7 +37,7 @@
             <td colspan="2">
                 <asp:GridView ID="dgvPersonas" runat="server" AutoGenerateColumns="False">
                     <Columns>
-                        <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
+                        <asp:CommandField ShowSelectButton="True" />
                         <asp:BoundField DataField="Legajo" HeaderText="Legajo" />
                         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                         <asp:BoundField DataField="Apellido" HeaderText="Apellido" />
